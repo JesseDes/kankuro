@@ -4,6 +4,6 @@ Am i Done?
 
 1. Fetch & Merge Master into my local branch.
 2. Resolve conflicts (if any)
-3. Push to my branch
+3. Commit and Push to my branch
 4. Create pull request
 5. Tag coders to review
