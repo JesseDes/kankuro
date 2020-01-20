@@ -1,16 +1,21 @@
 package main;
 
 import core.*;
-import GUI.CloseButton;
+import GUI.*;
+
 public class Main {
 
 	public static void main(String[] args) {
-		AppController.getInstance();
-		AppModel.getInstance();
+//		AppController.getInstance();
+//		AppModel.getInstance();
 		AppView.getInstance();
 
-		
-		AppView.getInstance().addToFrame(new CloseButton());
+		// Creating BackPanel
+		BackPanel main = new BackPanel();
+
+		AppView.getInstance().addToFrame(main);
+		AppView.getInstance().makeLive();
+//		AppView.getInstance().addToFrame(new CloseButton());
 	}
 
 }

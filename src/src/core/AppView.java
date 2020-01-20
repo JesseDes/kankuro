@@ -1,6 +1,7 @@
 package core;
 
-import java.awt.Component;
+import java.awt.*;
+
 import javax.swing.*;  
 /**
 * {@inheritDoc}
@@ -9,13 +10,16 @@ import javax.swing.*;
 * containers, buttons and other GUI elements can be added with the {@code addtoFrame} method.
 */
 public class AppView implements IView {
-   public static final int APP_HEIGHT = 800;
-   public static final int APP_WIDTH = 600;
+   public static final Dimension SCREENSIZE = Toolkit.getDefaultToolkit().getScreenSize();
+   public static final int APP_HEIGHT = (int) SCREENSIZE.getHeight();
+   public static final int APP_WIDTH = APP_HEIGHT/3;
    public static final String APP_TITlE = "Kakuro";
 	
+   
    private static AppView instance = null; 
    private JFrame _appFrame;
 
+   
     /**
     * {@inheritDoc}
     * <p>
@@ -31,6 +35,8 @@ public class AppView implements IView {
     	
     	return instance;
     }
+    
+    
 	/**
     * {@inheritDoc}
     * <p>
@@ -40,14 +46,24 @@ public class AppView implements IView {
     {
     	_appFrame.add(comp);
     }
+    
+    public void makeLive() {
+    	_appFrame.pack();
+    	_appFrame.setVisible(true);
+    }
+    
+    
     /**
     * {@inheritDoc}
     * <p>
     *Class Constructor
     */
     private AppView() {
+    	JFrame.setDefaultLookAndFeelDecorated(true);
     	_appFrame = new JFrame();
-    	_appFrame.setVisible(true); 
+        _appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    	_appFrame.setVisible(true);
+    	_appFrame.setResizable(false); //For now
     	_appFrame.setSize(APP_HEIGHT,APP_WIDTH);
     	_appFrame.setTitle(APP_TITlE);
     }
