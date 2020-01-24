@@ -17,6 +17,9 @@ public class BackPanel extends JPanel {
 		this.gbc = new GridBagConstraints();
 		this.setLayout(this.gbl);
 		
+		//Adding a border to BackPanel()
+		this.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+		
 		//Instantiating Board label
 		Label gridbox_label = new Label("BOARD", "Calibri", 30);
 	
@@ -31,38 +34,55 @@ public class BackPanel extends JPanel {
         
         //Instantiating difficulty button checkboxes
         JButton[] difficulty = { new JButton("EASY"), new JButton("NORMAL"), new JButton("HARD") };
-        difficultyLevelButtonListener(difficulty);
+        addDifficultyLevelButtonListener(difficulty);
+        
+        //Adding a button for a new game
+        JButton newgameButton = new JButton("NEW GAME");
+        
 	
       //Adding elements with GridBagConstraints
         this.gbc = new GridBagConstraints();
         this.gbc.fill = GridBagConstraints.HORIZONTAL;
         this.gbc.insets = new Insets(10,0,0,0);
 
+        //Adding the kakuro label
         setGridBagConstraints(0, 0, 0.5, 0.5, 3, 0);
         this.add(gridbox_label, this.gbc);
 
+        //Adding the gridbox
         setGridBagConstraints(0, 1, 0.5, 0.5, 3, 300);
         this.add(gridbox, this.gbc);
 
+        //Adding the game buttons and gamebutton listeners
         for (int i = 0; i < gamebuttons.length; i++) {
-            setGridBagConstraints(i, 3, 0.5, 0.5, 1, 100);
+            setGridBagConstraints(i, 3, 0.5, 0.5, 1, 30);
             gamebuttons[i].setFont(new Font("Calibri", Font.BOLD, 16));
             this.add(gamebuttons[i], this.gbc);
         }
+        addGameButtonListeners(gamebuttons);
         
 
-        setGridBagConstraints(0, 4, 0.5, 0.5, 3, 0);
+        //Add Difficulty label
+        setGridBagConstraints(0, 4, 0.5, 0.5, 3, 20);
         this.add(difficulty_label, this.gbc);
 
+        
+        //Add difficulty button selectors
         for (int i = 0; i < difficulty.length; i++) {
             difficulty[i].setBorder(BorderFactory.createLineBorder(UIManager.getColor("Panel.background"), 1));
             difficulty[0].setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
             difficulty[0].setForeground(Color.BLUE);
-
+            
             setGridBagConstraints(i, 5, 0.5, 0.5, 1, 50);
             difficulty[i].setFont(new Font("Calibri", Font.BOLD, 16));
             this.add(difficulty[i], this.gbc);
         }
+        
+        
+        //Add new game buton
+        setGridBagConstraints(0, 6, 0.5, 0.5, 3, 40);
+        newgameButton.setFont(new Font("Calibri", Font.BOLD, 16));
+        this.add(newgameButton, this.gbc);
 	}
 	
 	public GridPanel getGridBox() {
@@ -84,7 +104,7 @@ public class BackPanel extends JPanel {
     }
     
     //Makes the difficulty buttons act as checkboxes
-    public void difficultyLevelButtonListener(final JButton[] difficulty){
+    public void addDifficultyLevelButtonListener(final JButton[] difficulty){
         for (final JButton button: difficulty) {
             button.addMouseListener(new MouseAdapter() {
                 @Override
@@ -102,6 +122,22 @@ public class BackPanel extends JPanel {
                 }
             });
         }
+    }	
+    
+    //Makes the difficulty buttons act as checkboxes
+    public void addGameButtonListeners(final JButton[] gamebuttons){
+            gamebuttons[1].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    gridbox.undoLastOperation();
+                }
+            });
+            gamebuttons[2].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    gridbox.clearBoard();
+                }
+            });
     }	
    
 }
