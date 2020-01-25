@@ -1,21 +1,21 @@
 package GUI;
 
 import javax.swing.*;
-import core.AppController;
+import core.Application;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CloseButton extends JButton{
-	public static final String BUTTON_TEXT = "Exit Application";
+	//public static final String BUTTON_TEXT = "Exit Application";
 	
-	public CloseButton() {
-		this.setText(BUTTON_TEXT);
+	public CloseButton(String buttonText) {
+		this.setText(buttonText);
 		
 		//on Click event
 		this.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AppController.getInstance().closeApp();
+				Application.getInstance().closeApp();
 				
 			}
         });

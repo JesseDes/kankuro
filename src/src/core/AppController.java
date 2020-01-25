@@ -2,20 +2,12 @@ package core;
 /**
 * {@inheritDoc}
 * <p>
-* {@code AppController} Is the application controller. It handles communication to the application view and model
-* as well as any application wide events.
+* DEPRECIATED, MOVED TO APPLICATION
 */
-public class AppController implements IController {
+public class AppController  {
     private static AppController instance = null; 
    
     
-    /**
-    * {@inheritDoc}
-    * <p>
-    * Returns static singleton instance for application Controller.
-    * If the instance has not yet been created calling this function
-    * will create it.
-    */
     public static AppController getInstance() {
     	
     	if(instance == null)
