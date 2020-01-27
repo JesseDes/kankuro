@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.18)  26 JAN 2020 15:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.18)  26 JAN 2020 21:53
 entering extended mode
 **./ReqDoc.tex
 (ReqDoc.tex
@@ -292,32 +292,7 @@ Package pdftex.def Info: gameboardsol.png  used on input line 165.
 
  <./gameboardsol.png>] [8
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 196--198
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--219
-
- []
-
-[9
+] [9
 
 ] [10
 
@@ -327,28 +302,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--219
 
 ] [13
 
-] (ReqDoc.aux)
+] [14
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+] [15
 
- ) 
+] (ReqDoc.aux) ) 
 Here is how much of TeX's memory you used:
- 3550 strings out of 492484
- 55381 string characters out of 3122054
- 127268 words of memory out of 3000000
- 7873 multiletter control sequences out of 15000+200000
+ 3548 strings out of 492484
+ 55335 string characters out of 3122054
+ 127270 words of memory out of 3000000
+ 7871 multiletter control sequences out of 15000+200000
  8542 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,42p,1001b,364s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Marc/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb><C:/Users/Marc/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmcsc10.pfb><C:/Users/Marc/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Marc/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Marc/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ReqDoc.pdf (13 pages, 124853 bytes).
+ 55i,12n,42p,1001b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Marc/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmbx12.pfb><C:/Users/Marc/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Marc/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Marc/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Marc/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on ReqDoc.pdf (15 pages, 127060 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
