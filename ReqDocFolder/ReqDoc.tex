@@ -217,7 +217,7 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 \item Player has feedback that the number is incorrect.
 \end{description}\\
 \hline
-\cellcolor{lightgray}Priority & Must Have \\
+\cellcolor{lightgray}Priority & Must have \\
 \hline
 \cellcolor{lightgray}Traces to Test Cases & None \\
 \hline
@@ -227,43 +227,42 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 
 \clearpage
 
-\subsubsection{Use Case 2} \label{uc:2}
+\subsubsection{Use Case 2: Undo} \label{uc:2}
 
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{| c | m{10cm} |}
 \hline
-\cellcolor{lightgray}Description & blank \\
+\cellcolor{lightgray}Description & Allows user to undo a numeral entered in an input tile. \\
 \hline
-\cellcolor{lightgray}Summary & blank \\
+\cellcolor{lightgray}Summary & User enters a numeral in an input tile. Undo removes the entered numeral from the gameboard matrix. \\
 \hline
-\cellcolor{lightgray}Actors & blank \\
+\cellcolor{lightgray}Actors & Player \\
 \hline
 \cellcolor{lightgray}Pre-conditions &
 \begin{description}[font=$\bullet$~\normalfont\scshape]
-\item test
-\item test 
-\item test
+\item Player's turn to act.
+\item A numeral has been entered on the gameboard matrix 
+\item The gameboard has not been solved.
 \end{description}\\
 \hline
 \cellcolor{lightgray}Main Scenario & 
 \begin{description}
-\item [1.]test
-\item [2.]test
-\item [3.]test
+\item [1.]User has entered a numeral within an input tile.
+\item [2.]The numeral has the option to be undone.
+\item [3.]The numeral is removed from the current input tile.
 \end{description}\\
 \hline
 \cellcolor{lightgray}Exceptions & None \\
 \hline
 \cellcolor{lightgray}Post-Conditions & 
 \begin{description}[font=$\bullet$~\normalfont\scshape]
-\item test
-\item test
-\item test
-\item test
+\item Last played numeral is no longer on the gameboard matrix.
+\item A previously entered numeral is present on the gameboard matrix.
+\item Numerals may be removed until all input tiles are cleared.
 \end{description}\\
 \hline
-\cellcolor{lightgray}Priority & blank \\
+\cellcolor{lightgray}Priority & Good to have \\
 \hline
 \cellcolor{lightgray}Traces to Test Cases & blank \\
 \hline
@@ -274,6 +273,7 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 \clearpage
 
 \section{Non-Functional Constraints}
+There are a couple of non-functional constraints that comes along with this project. Considering that the majority of PC’s of the players run either on Windows or Mac OS, one constraint is that the application Kakuro must be built in a language that is supported by these operating systems. The programming language chosen to create this game is Java. Another constraint is that the game will only be functional on desktops and laptops as it has not been adjusted to function on mobile devices. Lastly, the application must be updated time to time if there are updates to the operating systems to make sure the game is still compatible.\\
 
 \clearpage
 
