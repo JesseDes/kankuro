@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.18)  28 JAN 2020 01:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.18)  28 JAN 2020 19:47
 entering extended mode
 **./ReqDoc.tex
 (ReqDoc.tex
@@ -292,9 +292,15 @@ Package pdftex.def Info: gameboardsol.png  used on input line 165.
 
  <./gameboardsol.png>] [8
 
-] [9
+]
+<Usecase Diagram.png, id=41, 593.21625pt x 532.99126pt>
+File: Usecase Diagram.png Graphic file (type png)
+<use Usecase Diagram.png>
+Package pdftex.def Info: Usecase Diagram.png  used on input line 181.
+(pdftex.def)             Requested size: 355.9325pt x 319.79723pt.
+ [9
 
-] [10
+ <./Usecase Diagram.png>] [10
 
 ] [11
 
@@ -313,10 +319,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
 ] (ReqDoc.aux) ) 
 Here is how much of TeX's memory you used:
- 3548 strings out of 492484
- 55335 string characters out of 3122054
+ 3552 strings out of 492484
+ 55433 string characters out of 3122054
  127270 words of memory out of 3000000
- 7871 multiletter control sequences out of 15000+200000
+ 7874 multiletter control sequences out of 15000+200000
  8542 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,42p,1001b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -326,9 +332,9 @@ nts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Marc/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Marc/AppData/Loca
 l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Marc/
 AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ReqDoc.pdf (15 pages, 128172 bytes).
+Output written on ReqDoc.pdf (15 pages, 137314 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
