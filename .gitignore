@@ -61,9 +61,11 @@ src/.target
 
 ### Eclipse Patch ###
 # Eclipse Core
+.project
 src/.project
 
 # JDT-specific (Eclipse Java Development Tools)
+.classpath
 src/.classpath
 
 # Annotation Processing

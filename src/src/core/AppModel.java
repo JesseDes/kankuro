@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import entities.SampleMVCButton.SampleButtonModel;
+import entities.PuzzleModel;
 
 /**
 * {@inheritDoc}
@@ -15,7 +16,7 @@ import entities.SampleMVCButton.SampleButtonModel;
 */
 public class AppModel {
 
-	private static final String DB_URL = "jdbc:sqlite:data/kakuro.db";
+	private static final String DB_URL = "jdbc:sqlite:src/data/kakuro.db";
 	private Connection _conn;
 
    /**
@@ -41,7 +42,27 @@ public class AppModel {
 		return button;
 	}
 	
-	
+	/**
+    * {@inheritDoc}
+    * <p>
+    * Retrieves puzzle with matching ID, if none found returns an empty puzzle;
+    */
+	public PuzzleModel getPuzzleModel(int id) {
+		String sql = "SELECT * FROM puzzles WHERE id = " + id + ";";
+		PuzzleModel puzzle;
+		try {
+			Statement stmt  = _conn.createStatement();
+			ResultSet rs  = stmt.executeQuery(sql);
+			puzzle = new PuzzleModel(rs.getString("solution"));
+				
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+			puzzle = new PuzzleModel("SQL ERROR");
+		}
+		
+		return puzzle;
+	}
     /**
     * {@inheritDoc}
     * <p>
