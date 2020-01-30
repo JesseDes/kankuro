@@ -1,16 +1,14 @@
 package main;
 
 import core.*;
-import GUI.CloseButton;
+import entities.SampleMVCButton.SampleButton;
 public class Main {
 
 	public static void main(String[] args) {
-		AppController.getInstance();
-		AppModel.getInstance();
-		AppView.getInstance();
+		Application.getInstance();
 
-		
-		AppView.getInstance().addToFrame(new CloseButton());
+		new SampleButton(1);
+		new SampleButton(2);
 	}
 
 }
