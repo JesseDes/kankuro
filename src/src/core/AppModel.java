@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import entities.SampleMVCButton.SampleButtonModel;
-import entities.PuzzleModel;
+import entities.puzzle.*;
 
 /**
 * {@inheritDoc}
@@ -16,7 +16,7 @@ import entities.PuzzleModel;
 */
 public class AppModel {
 
-	private static final String DB_URL = "jdbc:sqlite:src/data/kakuro.db";
+	private static final String DB_URL = "jdbc:sqlite:data/kakuro.db";
 	private Connection _conn;
 
    /**

@@ -1,4 +1,4 @@
-package entities;
+package entities.puzzle;
 
 import java.util.Arrays;
 
