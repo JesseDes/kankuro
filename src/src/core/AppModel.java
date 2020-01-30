@@ -49,7 +49,7 @@ public class AppModel {
     */
 	public PuzzleModel getPuzzleModel(int id) {
 		String sql = "SELECT * FROM puzzles WHERE id = " + id + ";";
-		PuzzleModel puzzle;
+		PuzzleModel puzzle = null;
 		try {
 			Statement stmt  = _conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
@@ -58,7 +58,6 @@ public class AppModel {
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
-			puzzle = new PuzzleModel("SQL ERROR");
 		}
 		
 		return puzzle;
