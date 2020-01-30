@@ -3,15 +3,15 @@
 # Edit at https://www.gitignore.io/?templates=eclipse
 
 ### Eclipse ###
-.metadata
-bin/
-tmp/
+src/.metadata
+src/bin/
+src/tmp/
 *.tmp
 *.bak
 *.swp
 *~.nib
 local.properties
-.settings/
+src/.settings/
 .loadpath
 .recommenders
 
@@ -34,10 +34,10 @@ local.properties
 .factorypath
 
 # PDT-specific (PHP Development Tools)
-.buildpath
+src/.buildpath
 
 # sbteclipse plugin
-.target
+src/.target
 
 # Tern plugin
 .tern-project
@@ -61,10 +61,10 @@ local.properties
 
 ### Eclipse Patch ###
 # Eclipse Core
-.project
+src/.project
 
 # JDT-specific (Eclipse Java Development Tools)
-.classpath
+src/.classpath
 
 # Annotation Processing
 .apt_generated
