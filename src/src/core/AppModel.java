@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import entities.SampleMVCButton.SampleButtonModel;
+import entities.puzzle.*;
 
 /**
 * {@inheritDoc}
@@ -41,7 +42,26 @@ public class AppModel {
 		return button;
 	}
 	
-	
+	/**
+    * {@inheritDoc}
+    * <p>
+    * Retrieves puzzle with matching ID, if none found returns an empty puzzle;
+    */
+	public PuzzleModel getPuzzleModel(int id) {
+		String sql = "SELECT * FROM puzzles WHERE id = " + id + ";";
+		PuzzleModel puzzle = null;
+		try {
+			Statement stmt  = _conn.createStatement();
+			ResultSet rs  = stmt.executeQuery(sql);
+			puzzle = new PuzzleModel(rs.getString("solution"));
+				
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return puzzle;
+	}
     /**
     * {@inheritDoc}
     * <p>
