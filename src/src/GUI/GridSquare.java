@@ -28,7 +28,7 @@ public class GridSquare extends JComponent {
 
 		if (this.type==0) this.ds = new DisplaySquare(loValString, upValString);
 		else {
-			this.is = new InputSquare(this.index);
+			this.is = new InputSquare(this.index, 0);
 			this.is.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 					
@@ -53,6 +53,11 @@ public class GridSquare extends JComponent {
 	public int getType() { return this.type; }
 	
 	public int getIndex() {return this.index;}
+	
+	public boolean checkValue() {
+		if(this.getType()==1) { return this.getIs().checkValue(); }
+		return false;
+	}
 	
 	public DisplaySquare getDs() { return this.ds; }
 	
