@@ -37,8 +37,14 @@ public class GridSquare extends JComponent {
 		            		|| ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
 		               is.setEditable(true);
 		            } else {
+		            if ((is.getText().length()<=1 && ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') 
+		            || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+		               is.setEditable(true);
+		            } 
+		            else {
 		               is.setEditable(false);
 		            }
+				}
 				}
 			});
 		}
