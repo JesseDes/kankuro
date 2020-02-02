@@ -2,6 +2,7 @@ package GUI;
 
 import javax.swing.*;
 
+import core.Application;
 import entities.puzzle.Puzzle;
 
 import java.awt.*;
@@ -20,6 +21,9 @@ public class GridPanel extends JPanel implements FocusListener {
 	private Stack<Integer> operationsStack = new Stack<Integer>();
 	
 
+	/**
+	 * Constructor for GridPanel
+	 */
 	public GridPanel() {
 		//Instantiating and setting up properties
 		super();
@@ -35,10 +39,13 @@ public class GridPanel extends JPanel implements FocusListener {
 		this.gridSquares = new GridSquare[81];
 		this.populateGridPanel();
 		
+		
 	}
 	
 
-	//Used by Undo button in BackPanel to remove the text in the last edited InputSquare element
+	/**
+	 * Removes the text/value in the last edited InputSquare element
+	 */
 	public void undoLastOperation() {
 		if(!operationsStack.isEmpty()) {
 			int popelem = operationsStack.pop();
@@ -48,6 +55,9 @@ public class GridPanel extends JPanel implements FocusListener {
 		
 	}
 	
+	/**
+	 * Removes the text/value in all InputSquares elements
+	 */
 	public void clearBoard() {
 		for(GridSquare square: gridSquares) {
 			if(square.getType()==1) {
@@ -56,6 +66,43 @@ public class GridPanel extends JPanel implements FocusListener {
 		}
 	}
 	
+	/**
+	 * FocusGained eventListener for the current InputSquare
+	 */
+	public void focusGained(FocusEvent e) {
+//        System.out.println("Focus gained" + e.toString());
+                
+        //Assigning current inFocus component to InputSquare variable
+        inFocusInputSquare = ((InputSquare) e.getSource());
+        
+        //Recording current value of input to add to OperationsStack if changed on outFocus
+        this.currentFocusVal = inFocusInputSquare.getText();
+        
+        //Changing border color of inFocus element to Blue
+        inFocusInputSquare.setBorder(BorderFactory.createLineBorder(Color.blue, 1));
+    }
+	
+	/**
+	 * FocusGained eventListener for the current InputSquare
+	 */
+    public void focusLost(FocusEvent e) {
+//        System.out.println("Focus lost" + e.toString());
+        
+        //Adding the index of the last InputSquare on the operations stack if input changed
+        if(!this.currentFocusVal.equals(inFocusInputSquare.getText())) {
+        	this.operationsStack.push(inFocusInputSquare.getIndex());
+        	System.out.println(this.operationsStack.toString());
+        }
+        
+        //Recording current value of output
+        outFocusInputSquare = ((InputSquare) e.getSource());
+        
+        outFocusInputSquare.checkValue();
+        
+        //Changing border color of outFocus element to Black
+        inFocusInputSquare.setBorder(BorderFactory.createLineBorder(Color.black, 0));
+        
+    }
 	
 	//Used for example only until AppModel can actually create a game
 	public void populateGridPanel() {
@@ -74,37 +121,5 @@ public class GridPanel extends JPanel implements FocusListener {
 
 		}
 	}
-	
-	public void focusGained(FocusEvent e) {
-//        System.out.println("Focus gained" + e.toString());
-                
-        //Assigning current inFocus component to InputSquare variable
-        inFocusInputSquare = ((InputSquare) e.getSource());
-        
-        //Recording current value of input to add to OperationsStack if changed on outFocus
-        this.currentFocusVal = inFocusInputSquare.getText();
-        
-        //Changing border color of inFocus element to Blue
-        inFocusInputSquare.setBorder(BorderFactory.createLineBorder(Color.blue, 1));
-    }
-
-    public void focusLost(FocusEvent e) {
-//        System.out.println("Focus lost" + e.toString());
-        
-        //Adding the index of the last InputSquare on the operations stack if input changed
-        if(!this.currentFocusVal.equals(inFocusInputSquare.getText())) {
-        	this.operationsStack.push(inFocusInputSquare.getIndex());
-        	System.out.println(this.operationsStack.toString());
-        }
-        
-        //Recording current value of output
-        outFocusInputSquare = ((InputSquare) e.getSource());
-        
-        //Changing border color of outFocus element to Black
-        inFocusInputSquare.setBorder(BorderFactory.createLineBorder(Color.black, 0));
-        
-
-    }
-	
 
 }

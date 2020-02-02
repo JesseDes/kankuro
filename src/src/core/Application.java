@@ -10,6 +10,7 @@ public class Application {
     
     private AppView _view = new AppView();
     private AppModel _model = new AppModel();
+    
     /**
     * {@inheritDoc}
     * <p>

@@ -3,7 +3,9 @@ package core;
 import java.awt.Component;
 import java.awt.Dimension;
 
-import javax.swing.*;  
+import javax.swing.*;
+
+import GUI.BackPanel;  
 /**
 * {@inheritDoc}
 * <p>
@@ -88,6 +90,7 @@ public class AppView {
     	_layeredPane.add(_appMain,0,0);
     	_layeredPane.add(_appPopup,1,0);
     	_appFrame.add(_layeredPane);
+    	
     }
     /**
      * {@inheritDoc}

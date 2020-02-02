@@ -13,6 +13,11 @@ public class DisplaySquare extends JPanel {
             2
     );
 
+    /**
+     * Constructor for DisplaySquare
+     * @param lowerVal Numerical value of the bottom triangle division number in a DisplaySquare
+     * @param upperVal Numerical value of the top triange division number in a DisplaySquare
+     */
     public DisplaySquare(String lowerVal, String upperVal){
     		this.lowerValue = lowerVal;
     		this.upperValue = upperVal;
@@ -42,6 +47,7 @@ public class DisplaySquare extends JPanel {
             
 
     }
+
 
     @Override
     protected void paintComponent(Graphics g){

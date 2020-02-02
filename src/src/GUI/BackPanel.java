@@ -6,7 +6,10 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
+import core.Application;
+
 public class BackPanel extends JPanel {
+	private static BackPanel backPanelInstance;
 	private GridBagLayout gbl;
 	private GridBagConstraints gbc;
 	private GridPanel gridbox;
@@ -22,6 +25,7 @@ public class BackPanel extends JPanel {
 		
 		//Instantiating Board label
 		Label gridbox_label = new Label("BOARD", "Calibri", 30);
+		Application.getInstance().getView().addToFrame(gridbox_label);
 	
 		//Instantiating and populating GridPanel
 		gridbox = new GridPanel();
@@ -50,7 +54,7 @@ public class BackPanel extends JPanel {
         this.add(gridbox_label, this.gbc);
 
         //Adding the gridbox
-        setGridBagConstraints(0, 1, 0.5, 0.5, 3, 300);
+        setGridBagConstraints(0, 1, 0.5, 0.5, 3, 250);
         this.add(gridbox, this.gbc);
 
         //Adding the game buttons and gamebutton listeners
@@ -83,14 +87,38 @@ public class BackPanel extends JPanel {
         setGridBagConstraints(0, 6, 0.5, 0.5, 3, 40);
         newgameButton.setFont(new Font("Calibri", Font.BOLD, 16));
         this.add(newgameButton, this.gbc);
+        
 	}
 	
-	public GridPanel getGridBox() {
-		return this.gridbox;
+	/**
+	 * Static accessor method so that AppModel and AppController can access the BackPanel
+	 * @return BackPanel object
+	 */
+	public static BackPanel getBackPanel() {
+    	
+    	if(backPanelInstance == null)
+    		backPanelInstance = new BackPanel();
+    	
+    	return backPanelInstance;
 	}
 	
-    //Macro-type function to change gridBagConstraints this.gbc, only contains parameters
-    //used at least one time in addElementsToFrame
+	/**
+	 * Accessor method to return the BackPanel's corresponding GridBox object
+	 * @return GridBox object
+	 */
+	public GridPanel getGridBox() { return getBackPanel().gridbox; }
+	
+	
+	/**
+	 * Macro-type function to change gridBagConstraints this.gbc, only contains parameters 
+	 * used at least one time in addElementsToFrame
+	 * @param gridx
+	 * @param gridy
+	 * @param weightx
+	 * @param weighty
+	 * @param gridwidth
+	 * @param ipady
+	 */
     public void setGridBagConstraints(
             Object gridx, Object gridy, Object weightx, Object weighty,
             Object gridwidth, Object ipady
@@ -103,7 +131,31 @@ public class BackPanel extends JPanel {
         if (!ipady.equals(-1)){ this.gbc.ipady = (int)ipady; }
     }
     
-    //Makes the difficulty buttons act as checkboxes
+    
+    /**
+     * EventListeners associating the game buttons to their corresponding function
+     * @param gamebuttons
+     */
+    public void addGameButtonListeners(final JButton[] gamebuttons){
+            gamebuttons[1].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    gridbox.undoLastOperation();
+                }
+            });
+            gamebuttons[2].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    gridbox.clearBoard();
+                }
+            });
+    }	
+    
+    
+    /**
+     * EventListener to make the difficulty buttons act as checkboxes
+     * @param difficulty Array containing the difficulty buttons
+     */
     public void addDifficultyLevelButtonListener(final JButton[] difficulty){
         for (final JButton button: difficulty) {
             button.addMouseListener(new MouseAdapter() {
@@ -124,20 +176,6 @@ public class BackPanel extends JPanel {
         }
     }	
     
-    //Makes the difficulty buttons act as checkboxes
-    public void addGameButtonListeners(final JButton[] gamebuttons){
-            gamebuttons[1].addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    gridbox.undoLastOperation();
-                }
-            });
-            gamebuttons[2].addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    gridbox.clearBoard();
-                }
-            });
-    }	
+    
    
 }
