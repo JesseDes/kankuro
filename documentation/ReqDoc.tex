@@ -48,19 +48,19 @@
 \hline
 \cellcolor{gray}Name & \cellcolor{gray}ID Number \\
 \hline
-Sajib Ahmed & 40044867 \\
+Sajib Ahmed & A \\
 \hline
 Yaroslav Bilodid & B \\
 \hline
-Jesse Desmarais & 4003576 \\
+Jesse Desmarais & C \\
 \hline
 Antoine Farley & D \\
 \hline
-Marc Hegedus & 26242219 \\
+Marc Hegedus & E \\
 \hline
-Katerina Tambakis & 27010486 \\
+Katerina Tambakis & F \\
 \hline
-Yingjie Zhou & 26433820 \\
+Yingjie Zhou & G \\
 \hline
 \end{tabular}
 \end{center}
@@ -158,7 +158,7 @@ The final solution to the gameboard shown in section 2.1.1.1 is given below. Eac
 \item [Completion] Every input tile has been correctly filled out in the gameboard matrix.
 \end{description}
 
-The difficulty is set to easy due to the clues being too telling of the numbers needing to be entered. Taking a look at the top left, there's only one variation of numbers which can be inserted. This forms a good base to complete the rest of the puzzle.
+The difficulty is set to easy due to the clues being too telling of the numbers needing to be entered. Taking a look at the top left, there's only one variation of numbers which can be inserted. This forms a good base to complete the rest of the puzzle.\\
 
 
 \begin{figure}[htbp]
@@ -171,9 +171,24 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 
 \section{Actors}
 
+Stakeholders are those who would show interest in a product, for example, through marketing. Actors form a subset from those that directly interact with the product. In the first iteration of the Kakuro puzzle, actors come in the given forms:
+
+\begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}] 
+\item [Coders] In a test driven design, code is tested in segments to implement functionality.
+\item [Documenters] Through communication and verification, a requirements document can be written as a deliverable to the client.
+\item [Organizers] To keep a steady purposeful work flow, one must keep track and organize the trajectory of the project by interacting with the coder's work.    
+\item [Quality Assurance] The improvement of the code's structure and design is validated by an interaction.
+\item [Players] Once base functionality is attained, users may willing play through a puzzle. 
+\end{description}
+
 \clearpage
 
 \section{Use Cases}
+
+In the first iteration, the user and system need only interact to the point where base functionality is achieved. The use case diagram below depicts the requirements and scope of the system.
+
+Use cases 1 and 2 are system functions relayed to the player and should not need validation to operate. Whereas with use cases 3 and 4, information from the player is relayed to the system. For example, the former sends feedback to the player if the value entered is incorrect.
+
 
 \subsection{Overview}
 
@@ -183,15 +198,96 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 \end{figure}
 
 \clearpage
-\subsubsection{Use Case 1: Input Validation} \label{uc:1}
+\subsubsection{Use Case 1: Prompt Input} \label{uc:1}
 
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{| c | m{10cm} |}
 \hline
-\cellcolor{lightgray}Description & Allows user to receive feedback on number entered in put tile. \\
+\cellcolor{lightgray}Description & Signals user to enter values. \\
 \hline
-\cellcolor{lightgray}Summary & A number is entered from 1 to 9 in an input tile and a read overlay is presented if incorrect. \\
+\cellcolor{lightgray}Summary & A Kakuro puzzle is displayed. \\
+\hline
+\cellcolor{lightgray}Actors & Player \\
+\hline
+\cellcolor{lightgray}Pre-conditions &
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+\item Player starts a game.
+\end{description}\\
+\hline
+\cellcolor{lightgray}Main Scenario & 
+\begin{description}
+\item [1.]Player starts a game.
+\item [2.]A Kakuro puzzle is displayed. 
+\item [3.]Input tiles represent a location where numerals may be accepted.
+\end{description}\\
+\hline
+\cellcolor{lightgray}Exceptions & None \\
+\hline
+\cellcolor{lightgray}Post-Conditions & 
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+\item The Kakuro puzzle prompts input until a solution is found.
+\end{description}\\
+\hline
+\cellcolor{lightgray}Priority & Must have \\
+\hline
+\cellcolor{lightgray}Traces to Test Cases & None \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\clearpage
+\subsubsection{Use Case 2: Input Value} \label{uc:1}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{| c | m{10cm} |}
+\hline
+\cellcolor{lightgray}Description & Allows user to enter a numeral in an input tile. \\
+\hline
+\cellcolor{lightgray}Summary & User may input numerals in input tiles to form a solution. \\
+\hline
+\cellcolor{lightgray}Actors & Player \\
+\hline
+\cellcolor{lightgray}Pre-conditions &
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+\item Player's turn to act.
+\item Tile selected is an input tile. 
+\end{description}\\
+\hline
+\cellcolor{lightgray}Main Scenario & 
+\begin{description}
+\item [1.]Player starts a game.
+\item [2.]Player selects an input tile. 
+\item [3.]Player enters a value.
+\end{description}\\
+\hline
+\cellcolor{lightgray}Exceptions & None \\
+\hline
+\cellcolor{lightgray}Post-Conditions & 
+\begin{description}[font=$\bullet$~\normalfont\scshape]
+\item A value now shows within a played input tile.
+\end{description}\\
+\hline
+\cellcolor{lightgray}Priority & Must have \\
+\hline
+\cellcolor{lightgray}Traces to Test Cases & None \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\clearpage
+\subsubsection{Use Case 3: Input Validation} \label{uc:1}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{| c | m{10cm} |}
+\hline
+\cellcolor{lightgray}Description & Allows user to receive feedback on a number entered in an input tile. \\
+\hline
+\cellcolor{lightgray}Summary & A number is entered from 1 to 9 in an input tile and a red overlay is presented if incorrect. \\
 \hline
 \cellcolor{lightgray}Actors & Player \\
 \hline
@@ -209,7 +305,7 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 \item [3.]A red overlay on the input tile is displayed.
 \end{description}\\
 \hline
-\cellcolor{lightgray}Exceptions & blank \\
+\cellcolor{lightgray}Exceptions & None \\
 \hline
 \cellcolor{lightgray}Post-Conditions & 
 \begin{description}[font=$\bullet$~\normalfont\scshape]
@@ -227,7 +323,7 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 
 \clearpage
 
-\subsubsection{Use Case 2: Undo} \label{uc:2}
+\subsubsection{Use Case 4: Undo Input} \label{uc:2}
 
 \begin{table}[htbp]
 \begin{center}
@@ -264,7 +360,7 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 \hline
 \cellcolor{lightgray}Priority & Good to have \\
 \hline
-\cellcolor{lightgray}Traces to Test Cases & blank \\
+\cellcolor{lightgray}Traces to Test Cases & None \\
 \hline
 \end{tabular}
 \end{center}
@@ -311,13 +407,20 @@ ValidateButton & Onclick will call the validate function in the Puzzle class \\
 
 \end{table}
 
-
 \clearpage
 
 \section{References (APA)}
 
 Kakuro. (2019, December 18). Retrieved from https://en.wikipedia.org/wiki/Kakuro
 \clearpage
+\appendix
 
+\section{Description of File Format: Tasks}
+
+Not Applicable.
+
+\section{Description of File Format: Persons}
+
+Not Applicable.
 
 \end{document}
