@@ -48,19 +48,19 @@
 \hline
 \cellcolor{gray}Name & \cellcolor{gray}ID Number \\
 \hline
-Sajib Ahmed & A \\
+Sajib Ahmed & 40044867 \\
 \hline
 Yaroslav Bilodid & B \\
 \hline
-Jesse Desmarais & C \\
+Jesse Desmarais & 4003576 \\
 \hline
 Antoine Farley & D \\
 \hline
-Marc Hegedus & E \\
+Marc Hegedus & 26242219 \\
 \hline
-Katerina Tambakis & F \\
+Katerina Tambakis & 27010486 \\
 \hline
-Yingjie Zhou & G \\
+Yingjie Zhou & 26433820 \\
 \hline
 \end{tabular}
 \end{center}
@@ -279,20 +279,45 @@ There are a couple of non-functional constraints that comes along with this proj
 
 \section{Data Dictionary}
 
+\begin{table}[htbp]
+\begin{tabular}{|c | m{10cm}|}
+\hline
+\cellcolor{gray}Name & \cellcolor{gray}Definition \\
+\hline
+Application & Start of the application. Creates an AppView and AppModel. Controls access to both creating the puzzle  \\
+\hline
+AppView & Handles the adding of views to the application window. Has 2 layers appMain and appPopup \\
+\hline
+AppModel & Requests database for needed data. For example, it finds a puzzle with matching id and returns the PuzzleModel \\
+\hline
+Puzzle & The controller of the class requests a model from AppModel and uses it to create a puzzle view, it checks each box in it's view to see if they have the correct answer \\
+\hline
+PuzzleView: & Creates a gridPanel and a validate button\\
+\hline
+PuzzleModel & GUI format of the solution array\\
+\hline
+SolutionArray & Contains identity of each square. Whether if it is playable, contains top and bottom digit, can take an input\\
+\hline
+GridPanel & The collection of 100 10x10 squares \\
+\hline
+GridSquare & Contains the GUI of the squares. Input square is white, sum square is grey, unplayable square is black\\
+\hline
+InputSquare & A square with a text box
+ \\
+\hline
+ValidateButton & Onclick will call the validate function in the Puzzle class \\
+\hline
+\end{tabular}
+
+\end{table}
+
+
 \clearpage
 
 \section{References (APA)}
 
 Kakuro. (2019, December 18). Retrieved from https://en.wikipedia.org/wiki/Kakuro
 \clearpage
-\appendix
 
-\section{Description of File Format: Tasks}
-
-Describe input file format.
-
-\section{Description of File Format: Persons}
-
-Describe output file format.
 
 \end{document}
