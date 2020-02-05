@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.18)  4 FEB 2020 00:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.18)  4 FEB 2020 22:38
 entering extended mode
 **./ReqDoc.tex
 (ReqDoc.tex
@@ -302,37 +302,48 @@ Package pdftex.def Info: gameboardsol.png  used on input line 165.
 (pdftex.def)             Requested size: 179.77301pt x 179.77301pt.
 [7
 
- <./gameboardsol.png>] [8
-
-]
-<Usecase Diagram.png, id=41, 591.20876pt x 532.99126pt>
-File: Usecase Diagram.png Graphic file (type png)
-<use Usecase Diagram.png>
-Package pdftex.def Info: Usecase Diagram.png  used on input line 196.
-(pdftex.def)             Requested size: 354.72798pt x 319.79723pt.
- [9
-
- <./Usecase Diagram.png>] [10
-
-] [11
-
-] [12
-
-]
-[13
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
+ <./gameboardsol.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
-[14
+<TempUML.png, id=38, 713.66624pt x 603.25375pt>
+File: TempUML.png Graphic file (type png)
+<use TempUML.png>
+Package pdftex.def Info: TempUML.png  used on input line 176.
+(pdftex.def)             Requested size: 428.20305pt x 361.95503pt.
+[8
 
-] [15
+ <./TempUML.png>] [9
+
+]
+<Usecase Diagram.png, id=46, 591.20876pt x 532.99126pt>
+File: Usecase Diagram.png Graphic file (type png)
+<use Usecase Diagram.png>
+Package pdftex.def Info: Usecase Diagram.png  used on input line 206.
+(pdftex.def)             Requested size: 354.72798pt x 319.79723pt.
+ [10
+
+ <./Usecase Diagram.png>] [11
+
+] [12
+
+] [13
+
+] [14
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
+
+ []
+
+[15
 
 ] [16
 
 ] [17
+
+] [18
 
 ] (ReqDoc.aux)
 
@@ -340,10 +351,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3551 strings out of 492484
- 55411 string characters out of 3122054
+ 3557 strings out of 492484
+ 55496 string characters out of 3122054
  127301 words of memory out of 3000000
- 7873 multiletter control sequences out of 15000+200000
+ 7878 multiletter control sequences out of 15000+200000
  8542 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,42p,1001b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -353,9 +364,9 @@ ic/amsfonts/cm/cmcsc10.pfb><C:/Users/Marc/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Marc/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Marc/AppData/Local/
 Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ReqDoc.pdf (17 pages, 145299 bytes).
+Output written on ReqDoc.pdf (18 pages, 157697 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
