@@ -25,4 +25,8 @@ public class PuzzleModel {
         }
     }
     
+    public int[][] getSolution(){
+    	return this.sol;
+    }
+    
 }

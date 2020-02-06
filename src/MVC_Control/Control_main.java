@@ -34,7 +34,7 @@ public class Control_main {
 		sc.close();
 		
 		
-		int[][] tt = this.getmodel(Pid).sol;
+		int[][] tt = this.getmodel(Pid).getSolution();
 		for(int i =0; i<tt.length;i++) {
 			System.out.print("[ ");
 			for (int j = 0; j<3;j++) {
@@ -45,7 +45,7 @@ public class Control_main {
 		}//console out of the array
 		
 		//Application.getInstance().getView().addToFrame(BackPanel.getBackPanel());
-		Application.getInstance().getView().addToFrame(BackPanel.getBackPanel(this.getmodel(Pid).sol));
+		Application.getInstance().getView().addToFrame(BackPanel.getBackPanel(this.getmodel(Pid).getSolution()));
 		
 		
 		
