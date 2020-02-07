@@ -109,6 +109,12 @@ public class BackPanel extends JPanel {
 	public GridPanel getGridBox() { return getBackPanel().gridbox; }
 	
 	
+	
+	public void setUpGridPanel(int[][] arrinput) {
+		this.gridbox.updateGridPanel(arrinput);
+	}
+	
+	
 	/**
 	 * Macro-type function to change gridBagConstraints this.gbc, only contains parameters 
 	 * used at least one time in addElementsToFrame

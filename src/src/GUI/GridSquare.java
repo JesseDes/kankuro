@@ -34,7 +34,11 @@ public class GridSquare extends JComponent {
 
 		if (this.type==0) this.ds = new DisplaySquare(loValString, upValString);
 		else {
+<<<<<<< Updated upstream
 			this.is = new InputSquare(this.index, 0);
+=======
+			this.is = new InputSquare(this.index, loVal);
+>>>>>>> Stashed changes
 			this.is.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 					
@@ -55,6 +59,11 @@ public class GridSquare extends JComponent {
 			});
 		}
 	}
+<<<<<<< Updated upstream
+=======
+	
+
+>>>>>>> Stashed changes
 	
 	/**
 	 * Accessor for this.type

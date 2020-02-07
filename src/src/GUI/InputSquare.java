@@ -47,6 +47,10 @@ public class InputSquare extends JTextField {
 			return (int)Integer.valueOf(this.getText()); 
 		}
 		else {
+<<<<<<< Updated upstream
+=======
+			
+>>>>>>> Stashed changes
 			return -1;
 		}
 	}
