@@ -11,7 +11,7 @@ public class PuzzleModel {
 	 *  1 - task cell. [1, top value, bottom value]
 	 *  2 - input cell. [2, solution value, 0]
 	 */
-    public int[][] sol = new int[100][3];
+    private int[][] sol = new int[100][3];
     
     public PuzzleModel(String solution){
         String solarr[] = solution.split(",");

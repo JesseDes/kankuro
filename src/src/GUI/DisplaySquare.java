@@ -21,9 +21,6 @@ public class DisplaySquare extends JPanel {
     public DisplaySquare(String lowerVal, String upperVal){
     		this.lowerValue = lowerVal;
     		this.upperValue = upperVal;
-    		
-    		//System.out.println("DiaplaySquare L" + this.lowerValue + " U" + this.upperValue);
-    		
             GridLayout grid = new GridLayout(2, 2, 10,10);
             JTextField[] values = new JTextField[2];
             this.setLayout(grid);
