@@ -78,3 +78,7 @@ src/.classpath
 src/.DS_Store
 
 # End of https://www.gitignore.io/api/eclipse
+.DS_Store
+src/.DS_Store
+src/src/.DS_Store
+src/src/entities/puzzle/8by9puzzleForDemo.txt
