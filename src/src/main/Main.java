@@ -1,8 +1,8 @@
 package main;
 
+import GUI.BackPanel;
 import core.*;
 import entities.puzzle.*;
-import entities.SampleMVCButton.SampleButton;
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,6 +11,7 @@ public class Main {
 		
 		PuzzleModel puzzle = app.getModel().getPuzzleModel(1);
 
+		Application.getInstance().getView().addToFrame(BackPanel.getBackPanel());
 	
 	}
 
