@@ -31,6 +31,9 @@ public class Puzzle {
 		System.out.println(Arrays.deepToString(this.puzzleGrid));
 	}
 	
+	public Puzzle(int[][] Arr) {
+		this.puzzleGrid = Arr;	
+	}//ZHOU
 	
 	
 }

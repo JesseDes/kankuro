@@ -3,6 +3,7 @@ package main;
 import GUI.BackPanel;
 import core.*;
 import entities.puzzle.*;
+import MVC_Control.*;
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,7 +12,9 @@ public class Main {
 		
 		PuzzleModel puzzle = app.getModel().getPuzzleModel(1);
 
-		Application.getInstance().getView().addToFrame(BackPanel.getBackPanel());
+		Control_main C = new Control_main();
+		
+		//Application.getInstance().getView().addToFrame(BackPanel.getBackPanel());
 	
 	}
 

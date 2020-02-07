@@ -42,6 +42,28 @@ public class GridPanel extends JPanel implements FocusListener {
 		
 	}
 	
+	/**
+	 * Constructor for GridPanel by ZHOU
+	 * creating 10*10
+	 */
+	public GridPanel(int[][] arr ) {
+		//Instantiating and setting up properties
+		super();
+		this.setBackground(Color.BLACK);
+        this.setBorder(BorderFactory.createMatteBorder(2,3,2,3, Color.BLACK));
+		this.gridLayout = new GridLayout(10, 10, 4, 4);
+		this.setLayout(this.gridLayout);
+		this.currentFocusVal = "";
+		this.puzzleArr = new Puzzle(arr);
+		
+		
+		//Creating and populating GridSquare array (example only)
+		this.gridSquares = new GridSquare[100];
+		this.populateGridPanel(arr.length);
+		
+		
+	}
+	
 
 	/**
 	 * Removes the text/value in the last edited InputSquare element
@@ -118,6 +140,24 @@ public class GridPanel extends JPanel implements FocusListener {
             else {
             	gridSquares[i] = new GridSquare(1, i);
             	gridSquares[i].setSquare(-1, -1);
+            	gridSquares[i].getIs().addFocusListener(this);
+            }
+            this.add((gridSquares[i].getType()==0) ? gridSquares[i].getDs() : gridSquares[i].getIs());
+
+		}
+	}
+	
+	//used for example with AppModel by ZHOU
+	public void populateGridPanel(int j) {
+		for (int i = 0; i< puzzleArr.getPuzzleGridSize(); i++) {
+			if(puzzleArr.getType(i) != 2){
+                gridSquares[i] = new GridSquare(0, i);
+                gridSquares[i].setSquare_C(puzzleArr.getLoVal(i), puzzleArr.getUpVal(i));
+            	
+            }
+            else {
+            	gridSquares[i] = new GridSquare(1, i);
+            	gridSquares[i].setSquare_C(puzzleArr.getLoVal(i), puzzleArr.getUpVal(i));
             	gridSquares[i].getIs().addFocusListener(this);
             }
             this.add((gridSquares[i].getType()==0) ? gridSquares[i].getDs() : gridSquares[i].getIs());

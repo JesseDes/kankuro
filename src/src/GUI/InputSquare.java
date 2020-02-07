@@ -18,6 +18,7 @@ public class InputSquare extends JTextField {
 	 * @param correctValue Integer representing the correct value (puzzle answer) of the current square
 	 */
 	public InputSquare(int index, int correctValue) {
+		
 		super(4);
 		this.setHorizontalAlignment(JTextField.CENTER);
 		this.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.WHITE));
@@ -47,6 +48,10 @@ public class InputSquare extends JTextField {
 			return (int)Integer.valueOf(this.getText()); 
 		}
 		else {
+			int currentvalue = Integer.parseInt(this.getText());
+			if( currentvalue > 0)
+				return currentvalue;
+			else
 			return -1;
 		}
 	}
