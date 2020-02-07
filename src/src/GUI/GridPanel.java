@@ -36,7 +36,7 @@ public class GridPanel extends JPanel implements FocusListener {
 		
 		
 		//Creating and populating GridSquare array (example only)
-		this.gridSquares = new GridSquare[81];
+		this.gridSquares = new GridSquare[100];
 		this.populateGridPanel();
 		
 		
