@@ -51,6 +51,8 @@ public class GridPanel extends JPanel implements FocusListener {
 			int popelem = operationsStack.pop();
 			System.out.println(popelem);
 			gridSquares[popelem].getIs().setText("");
+			gridSquares[popelem].getIs().setBackground(Color.white);
+
 		}
 		
 	}
@@ -62,6 +64,7 @@ public class GridPanel extends JPanel implements FocusListener {
 		for(GridSquare square: gridSquares) {
 			if(square.getType()==1) {
 				square.getIs().setText("");
+				square.getIs().setBackground(Color.white);
 			}
 		}
 	}
