@@ -1,0 +1,26 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {section}{\numberline {1}System}{3}%
+\contentsline {subsection}{\numberline {1.1}Introduction}{3}%
+\contentsline {subsection}{\numberline {1.2}Purpose}{3}%
+\contentsline {subsection}{\numberline {1.3}Context}{3}%
+\contentsline {subsection}{\numberline {1.4}Business Goals}{3}%
+\contentsline {section}{\numberline {2}Domain Concepts}{4}%
+\contentsline {subsection}{\numberline {2.1}Objectives}{4}%
+\contentsline {subsubsection}{\numberline {2.1.1}Kakuro Puzzle Game Specifications}{4}%
+\contentsline {paragraph}{\numberline {2.1.1.1}Gameboard}{5}%
+\contentsline {paragraph}{\numberline {2.1.1.2}Tiles}{5}%
+\contentsline {paragraph}{\numberline {2.1.1.3}Sum and intersections}{6}%
+\contentsline {paragraph}{\numberline {2.1.1.4}Solution}{7}%
+\contentsline {subsection}{\numberline {2.2}Domain Model UML}{8}%
+\contentsline {section}{\numberline {3}Actors}{9}%
+\contentsline {section}{\numberline {4}Use Cases}{10}%
+\contentsline {subsection}{\numberline {4.1}Overview}{10}%
+\contentsline {subsubsection}{\numberline {4.1.1}Use Case 1: Prompt Input}{11}%
+\contentsline {subsubsection}{\numberline {4.1.2}Use Case 2: Input Value}{12}%
+\contentsline {subsubsection}{\numberline {4.1.3}Use Case 3: Input Validation}{13}%
+\contentsline {subsubsection}{\numberline {4.1.4}Use Case 4: Undo Input}{14}%
+\contentsline {section}{\numberline {5}Non-Functional Constraints}{15}%
+\contentsline {section}{\numberline {6}Data Dictionary}{16}%
+\contentsline {section}{\numberline {7}References (APA)}{17}%
+\contentsline {section}{\numberline {A}Description of File Format: Tasks}{18}%
+\contentsline {section}{\numberline {B}Description of File Format: Persons}{18}%

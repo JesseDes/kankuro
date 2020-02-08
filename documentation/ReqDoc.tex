@@ -22,6 +22,8 @@
 \usepackage{caption}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\usepackage{etoc}
+\usepackage{blindtext}
 
 \begin{document}
 
@@ -66,8 +68,12 @@ Yingjie Zhou & 26433820 \\
 \end{center}
 \end{table}
 
-\clearpage
+\newpage
+\pagestyle{plain}
+\tableofcontents
 
+\newpage
+\pagestyle{plain}
 \section{System}
 \subsection{Introduction}
 
@@ -75,7 +81,7 @@ Yingjie Zhou & 26433820 \\
 
 \subsection{Purpose}
 
-\hspace{\parindent} The purpose of the Software Requirements Document describes the specification of the Kakuro puzzle game, which is in partial fulfillment of the requirements of COMP 354. This document will define the requirements of the user interface, the product functions, actors, non-functional constraints, and model for this application. The model will include use case diagrams and domain model UML diagrams. Furthermore, a detailed project plan will be provided, including the schedule of the upcoming phases. This document will serve as a basis for the upcoming phases for this project. 
+\hspace{\parindent} The purpose of the Software Requirements Document describes the specification of the Kakuro puzzle game, which is in partial fulfillment of the requirements of COMP 354. This document will define the requirements of the user interface, the product functions, actors, non-functional constraints, data definition, and model for this application. The model will include use case diagrams and domain model UML diagrams. Furthermore, a detailed project plan will be provided, including the schedule of the upcoming phases. This document will serve as a basis for the upcoming phases for this project. 
 
 \subsection{Context}
 
@@ -83,12 +89,10 @@ Yingjie Zhou & 26433820 \\
 
 \subsection{Business Goals}
 
-\hspace{\parindent} Our objective of developing Kakuro is in relation to the growth of PI-B. We are thriving to fulfill the customer’s needs so that we can expand our business portfolio in order to reach other customers’ business. Moreover, we hope to achieve a high number of downloads in order to catch the eye of advertisers that wish to participate in future projects that will be given to us. Specifically our goal for this project is to develop a puzzle where the user can play in multiple difficulties. 
+\hspace{\parindent} Our objective of developing kakuro is in relation to the growth of PI-B. We are thriving to fulfill the customer’s needs so that we can expand our business portfolio in order to reach other customers’ business. Moreover, we hope to achieve a high number of downloads in order to catch the eye of advertisers that wish to participate in future projects that will be given to us.
 
-\clearpage
 
-\clearpage
-
+\pagestyle{plain} 
 \section{Domain Concepts}
 \subsection{Objectives}
 
@@ -117,7 +121,8 @@ Implementation & Final Document & 2020/04/5 \\
 
 Kakuro is a japanese mathematical logic puzzle with rules similar to the crossword and sudoku. To develop a successful graphical user interface, the game's rules and characteristics are to be clearly detailed. This will allow clients and various actors to recognize the product for an intuitive feel. Due to the simplistic nature of the game, development will be focused on limiting user interaction and increasing response. This will be realized in the form of input validation. Users will interact with a single interface where numerals from one to nine are to be entered. If incorrect, a red translucent overlay will be superimposed upon the respective tile. A thorough description of Kakuro's mechanics is provided below. \\
 
-\clearpage
+\newpage
+\pagestyle{plain}
 \paragraph{Gameboard}\hfill\\ 
 \hfill\\
 Kakuro's classic form is composed of a monochromatic square matrix where three different tiles are displayed. They are the following: blank, input, and clue. Blank tiles are black and cannot contain any value. Clients are to interact only with the input tile. Numerical values will be inserted to complete the sums found within the clue tiles. Clue tiles are bisected diagonally where the lower and higher sums must correspond to the addition of all the vertically and horizontally aligned numerals in the input tiles, respectively. Input tiles along a specified direction can only have unique values from 1 to 9. Their intersections must then contain the same numeral. As such, a solution is obtained when every sum has been rightfully achieved throughout the gameboard matrix. The figure below shows a Kakuro puzzle at the easy difficulty.\\
@@ -136,6 +141,8 @@ The three distinct types of tiles are shown in the figure below in the given ord
 \centerline{\textit {Tile variation as seen in Kakuro}}
 \end{figure}
 
+\newpage
+\pagestyle{plain} 
 \paragraph{Sum and intersections}\hfill\\ 
 \hfill\\
 A vertical and horizontal column has been filled out with a possible solution to the gameboard shown in section 2.1.1.1. The top of the vertical column suggests a sum of 30 is needed from the input tiles vertically below. A combination of 9-8-7-6 must be placed within the four allotted slots. This vertical column had two clues where the second formed a break. Clue tiles that appear sequentially along a particular column represent a new sum to acquire from the input tiles. The second reads a sum of 10. A combination of 9-1, 8-2, 7-3, or 6-4 is allowed to be placed. The horizontal that has been filled shares a tile with the vertical column. This is called an intersection. The number in that input tile must be correct for both columns. The horizontal's first number is 7. Since a there lies a 6, only a 1 can be placed within the adjacent tile. The flow of the game concerns itself by correctly forming the proper sums and accommodating the many intersections between columns.\\
@@ -145,8 +152,8 @@ A vertical and horizontal column has been filled out with a possible solution to
 \centerline{\textit {Partially completed Kakuro gameboard}}
 \end{figure}
 
-\clearpage
-
+\newpage
+\pagestyle{plain}
 \paragraph{Solution}\hfill\\ 
 \hfill\\
 The final solution to the gameboard shown in section 2.1.1.1 is given below. Each of the following requirements has been met:
@@ -167,8 +174,8 @@ The difficulty is set to easy due to the clues being too telling of the numbers 
 \end{figure}
 
 
-\clearpage
-
+\newpage
+\pagestyle{plain} 
 \subsection{Domain Model UML}
 In test driven development progression is measured through the completion of use cases. The methodology is also aimed to be agile, favouring short cycles or iterations. For the first iteration base functionality is to be implemented. The following UML depicts several use cases that are currently part of the problem domain:\\
 
@@ -177,8 +184,8 @@ In test driven development progression is measured through the completion of use
 \centerline{\textit {Problem Domain UML}}
 \end{figure}
 
-\clearpage
-
+\newpage
+\pagestyle{plain} 
 \section{Actors}
 
 Stakeholders are those who would show interest in a product, for example, through marketing. Actors form a subset from those that directly interact with the product. In the first iteration of the Kakuro puzzle, actors come in the given forms:
@@ -191,8 +198,8 @@ Stakeholders are those who would show interest in a product, for example, throug
 \item [Players] Once base functionality is attained, users may willing play through a puzzle. 
 \end{description}
 
-\clearpage
-
+\newpage
+\pagestyle{plain} 
 \section{Use Cases}
 
 In the first iteration, the user and system need only interact to the point where base functionality is achieved. The use case diagram below depicts the requirements and scope of the system.
@@ -207,7 +214,8 @@ Use cases 1 and 2 are system functions relayed to the player and should not need
 \centerline{\textit {Use Case Diagram}}
 \end{figure}
 
-\clearpage
+\newpage
+\pagestyle{plain} 
 \subsubsection{Use Case 1: Prompt Input} \label{uc:1}
 
 \begin{table}[htbp]
@@ -247,14 +255,15 @@ Use cases 1 and 2 are system functions relayed to the player and should not need
 \end{center}
 \end{table}
 
-\clearpage
+\newpage
+\pagestyle{plain} 
 \subsubsection{Use Case 2: Input Value} \label{uc:1}
 
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{| c | m{10cm} |}
 \hline
-\cellcolor{lightgray}Description & Allows user to enter a numeral in an input tile. \\
+\cellcolor{lightgray}Description & Allows user to enter a numeral.\\
 \hline
 \cellcolor{lightgray}Summary & User may input numerals in input tiles to form a solution. \\
 \hline
@@ -288,7 +297,8 @@ Use cases 1 and 2 are system functions relayed to the player and should not need
 \end{center}
 \end{table}
 
-\clearpage
+\newpage
+\pagestyle{plain} 
 \subsubsection{Use Case 3: Input Validation} \label{uc:1}
 
 \begin{table}[htbp]
@@ -331,8 +341,8 @@ Use cases 1 and 2 are system functions relayed to the player and should not need
 \end{center}
 \end{table}
 
-\clearpage
-
+\newpage
+\pagestyle{plain} 
 \subsubsection{Use Case 4: Undo Input} \label{uc:2}
 
 \begin{table}[htbp]
@@ -376,13 +386,13 @@ Use cases 1 and 2 are system functions relayed to the player and should not need
 \end{center}
 \end{table}
 
-\clearpage
-
+\newpage
+\pagestyle{plain} 
 \section{Non-Functional Constraints}
-There are several non-functional constraints that comes along with this project. Considering that the majority of PC’s of the players run either on Windows or Mac OS, one constraint is that the application Kakuro must be built in a language that is supported by these operating systems. The programming language chosen to create this game is Java. Another constraint is that the game will only be functional on desktops and laptops as it has not been adjusted to function on mobile devices. Lastly, the application must be updated time to time if there are updates to the operating systems to make sure the game is still compatible.\\
+There are a couple of non-functional constraints that comes along with this project. Considering that the majority of PC’s of the players run either on Windows or Mac OS, one constraint is that the application Kakuro must be built in a language that is supported by these operating systems. The programming language chosen to create this game is Java. Another constraint is that the game will only be functional on desktops and laptops as it has not been adjusted to function on mobile devices. Lastly, the application must be updated time to time if there are updates to the operating systems to make sure the game is still compatible.\\
 
-\clearpage
-
+\newpage
+\pagestyle{plain} 
 \section{Data Dictionary}
 
 \begin{table}[htbp]
@@ -390,39 +400,29 @@ There are several non-functional constraints that comes along with this project.
 \hline
 \cellcolor{gray}Name & \cellcolor{gray}Definition \\
 \hline
-Application & Start of the application. Creates an AppView and AppModel. Controls access to both creating the puzzle  \\
+Domain Model & Package that contains class and activity diagrams  \\
 \hline
-AppView & Handles the adding of views to the application window. Has 2 layers appMain and appPopup \\
+UML Diagram & Unified modeling language diagram that visually represents a system along with its main actors and actions \\
 \hline
-AppModel & Requests database for needed data. For example, it finds a puzzle with matching id and returns the PuzzleModel \\
+Use Cases & A description on how a person will proceed to complete an action \\
 \hline
-Puzzle & The controller of the class requests a model from AppModel and uses it to create a puzzle view, it checks each box in it's view to see if they have the correct answer \\
+Actor & People who directly interact with the product \\
 \hline
-PuzzleView: & Creates a gridPanel and a validate button\\
+Stakeholder & People who show interest in the product\\
 \hline
-PuzzleModel & GUI format of the solution array\\
+Non Functional Constraint & Attribute that a product contains that prevents it from functioning\\
 \hline
-SolutionArray & Contains identity of each square. Whether if it is playable, contains top and bottom digit, can take an input\\
-\hline
-GridPanel & The collection of 100 10x10 squares \\
-\hline
-GridSquare & Contains the GUI of the squares. Input square is white, sum square is grey, unplayable square is black\\
-\hline
-InputSquare & A square with a text box
- \\
-\hline
-ValidateButton & Onclick will call the validate function in the Puzzle class \\
-\hline
-\end{tabular}
 
+\end{tabular}
 \end{table}
 
-\clearpage
-
-\section{References}
+\newpage
+\pagestyle{plain}
+\section{References (APA)}
 
 Kakuro. (2019, December 18). Retrieved from https://en.wikipedia.org/wiki/Kakuro
-\clearpage
+\newpage
+\pagestyle{plain} 
 \appendix
 
 \section{Description of File Format: Tasks}
