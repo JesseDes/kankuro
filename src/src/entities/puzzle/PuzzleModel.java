@@ -1,6 +1,5 @@
 package entities.puzzle;
 
-import java.util.Arrays;
 
 public class PuzzleModel {
 	

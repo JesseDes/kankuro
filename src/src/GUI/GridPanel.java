@@ -2,7 +2,6 @@ package GUI;
 
 import javax.swing.*;
 
-import core.Application;
 import entities.puzzle.PuzzleModel;
 
 import java.awt.*;

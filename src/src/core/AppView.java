@@ -5,7 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
-import GUI.BackPanel;  
+ 
 /**
 * {@inheritDoc}
 * <p>
