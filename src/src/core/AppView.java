@@ -37,7 +37,7 @@ public class AppView {
      */    
     public void addPopup(Component comp)
     {
-    	
+    	_appPopup.removeAll();
     	_appPopup.add(comp);
     	refresh();
     }

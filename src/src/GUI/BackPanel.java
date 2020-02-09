@@ -28,7 +28,7 @@ public class BackPanel extends JPanel {
 		Application.getInstance().getView().addToFrame(gridbox_label);
 	
 		//Instantiating and populating GridPanel
-		gridbox = new GridPanel();
+		//gridbox = new GridPanel();
 		
 		//Instantiating an array of JButtons 
         JButton[] gamebuttons = { new JButton("CHECK"), new JButton("UNDO"), new JButton("RESET") };

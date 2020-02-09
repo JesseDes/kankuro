@@ -48,10 +48,6 @@ public class InputSquare extends JTextField {
 			return (int)Integer.valueOf(this.getText()); 
 		}
 		else {
-			int currentvalue = Integer.parseInt(this.getText());
-			if( currentvalue > 0)
-				return currentvalue;
-			else
 			return -1;
 		}
 	}
