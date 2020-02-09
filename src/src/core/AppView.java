@@ -5,7 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
-import GUI.BackPanel;  
+ 
 /**
 * {@inheritDoc}
 * <p>
@@ -37,7 +37,7 @@ public class AppView {
      */    
     public void addPopup(Component comp)
     {
-    	
+    	_appPopup.removeAll();
     	_appPopup.add(comp);
     	refresh();
     }

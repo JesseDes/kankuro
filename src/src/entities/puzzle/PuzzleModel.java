@@ -1,6 +1,5 @@
 package entities.puzzle;
 
-import java.util.Arrays;
 
 public class PuzzleModel {
 	
@@ -28,5 +27,14 @@ public class PuzzleModel {
     public int[][] getSolution(){
     	return this.sol;
     }
+    
+	
+	public int getPuzzleGridSize () {
+		return this.sol.length;
+	}
+	
+	public int getType(int index) { return this.sol[index][0]; }
+	public int getLoVal(int index) { return this.sol[index][1]; }
+	public int getUpVal(int index) { return this.sol[index][2]; }
     
 }
