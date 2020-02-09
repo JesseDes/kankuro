@@ -8,6 +8,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
+/*
+This script rips puzzles from the internet and converts to our data format
+*/
+
 
 public class OnlinePuzzleParser {
 	

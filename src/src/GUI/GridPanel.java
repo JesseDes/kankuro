@@ -103,6 +103,21 @@ public class GridPanel extends JPanel implements FocusListener {
         
     }
 	
+	public boolean isSolved()
+    {
+    	boolean result = true;
+    	for(int i = 0; i < gridSquares.length; i++)
+    	{
+    		if(gridSquares[i].getType() == 1 && !gridSquares[i].checkValue())
+    		{
+    			result = false;
+    			break;
+    		}
+    	}
+    	
+    	return result;
+    }
+	
 	//used for example with AppModel by ZHOU
 	public void populateGridPanel(PuzzleModel puzzleArr ) {
 		for (int i = 0; i< puzzleArr.getPuzzleGridSize(); i++) {
