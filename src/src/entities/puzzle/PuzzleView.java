@@ -7,6 +7,7 @@ import java.awt.Insets;
 
 import javax.swing.*;
 import GUI.GridPanel;
+import GUI.GridPanelLoad;
 import GUI.Label;
 
 
@@ -15,9 +16,14 @@ public class PuzzleView extends JPanel {
 	private GridBagLayout gbl;
 	private GridBagConstraints gbc;
 	private GridPanel gridbox;
+	private GridPanelLoad loadTime;
 	JButton checkBtn;
 	JButton undoBtn;
 	JButton resetBtn;
+	////////////////////////////////
+	JButton saveBtn;
+	JButton loadBtn;
+	////////////////////////////////
 	
 	public PuzzleView(PuzzleModel model) {
 		this.gbl = new GridBagLayout();
@@ -31,8 +37,9 @@ public class PuzzleView extends JPanel {
 		Label gridbox_label = new Label("BOARD", "Calibri", 30);
 		
 		gridbox = new GridPanel(model);
+		loadTime = new GridPanelLoad();
 		
-		 this.gbc = new GridBagConstraints();
+		this.gbc = new GridBagConstraints();
         this.gbc.fill = GridBagConstraints.HORIZONTAL;
         this.gbc.insets = new Insets(10,0,0,0);
 
@@ -58,8 +65,20 @@ public class PuzzleView extends JPanel {
         setGridBagConstraints(2, 3, 0.5, 0.5, 1, 30);
         resetBtn.setFont(new Font("Calibri", Font.BOLD, 16));
         this.add(resetBtn, this.gbc);
+     
+	////////////////////////////////////////////////////////
+	
+        saveBtn =  new JButton("SAVE");
+        setGridBagConstraints(0, 4, 0.5, 0.5, 1, 30);
+        saveBtn.setFont(new Font("Calibri", Font.BOLD, 16));
+        this.add(saveBtn, this.gbc);
 
+        loadBtn =  new JButton("LOAD");
+        setGridBagConstraints(1, 4, 0.5, 0.5, 1, 30);
+        loadBtn.setFont(new Font("Calibri", Font.BOLD, 16));
+        this.add(loadBtn, this.gbc); 
 	}
+	////////////////////////////////////////////////////////
 	
 	/**
 	 * Macro-type function to change gridBagConstraints this.gbc, only contains parameters 
@@ -83,6 +102,7 @@ public class PuzzleView extends JPanel {
         if (!ipady.equals(-1)){ this.gbc.ipady = (int)ipady; }
     }
     
+    
     public JButton getCheckBtn() {
     	return checkBtn;
     }
@@ -98,5 +118,17 @@ public class PuzzleView extends JPanel {
     public GridPanel getGridPanel() {
     	return gridbox;
     }
+    
+    public GridPanelLoad getGridPanelLoad() {
+    	return loadTime;
+    }
+    
+    public JButton getSaveBtn() {
+    	return saveBtn;
+    }
 
+    public JButton getLoadBtn() {
+    	return loadBtn;
+    }
+    
 }

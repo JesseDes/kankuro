@@ -32,7 +32,7 @@ public class AppModel {
 			Statement stmt  = _conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
 			button = new SampleButtonModel(rs.getInt("id") , rs.getString("text"), rs.getInt("type") );
-				
+			stmt.close();
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -54,7 +54,7 @@ public class AppModel {
 			Statement stmt  = _conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
 			puzzle = new PuzzleModel(rs.getString("solution"));
-				
+			stmt.close();
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -62,6 +62,30 @@ public class AppModel {
 		
 		return puzzle;
 	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////
+	/**
+	* {@inheritDoc}
+	* <p>
+	* loads puzzle
+	*/
+	public PuzzleModel loadPuzzleModel() {
+		String sql = "SELECT * FROM State WHERE id = " + 1 + ";";
+		PuzzleModel puzzle = null;
+		try {
+			Statement stmt  = _conn.createStatement();
+			ResultSet rs  = stmt.executeQuery(sql);
+			puzzle = new PuzzleModel(rs.getString("data"));	
+			stmt.close();
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+			
+		return puzzle;
+	}
+	///////////////////////////////////////////////////////////////////////////////////////
+	
     /**
     * {@inheritDoc}
     * <p>

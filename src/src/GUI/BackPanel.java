@@ -32,7 +32,7 @@ public class BackPanel extends JPanel {
 		
 		//Instantiating an array of JButtons 
         JButton[] gamebuttons = { new JButton("CHECK"), new JButton("UNDO"), new JButton("RESET") };
-
+        
         //Instantiating Difficulty label
         Label difficulty_label = new Label("DIFFICULTY", "Calibri", 20);
         
@@ -43,8 +43,7 @@ public class BackPanel extends JPanel {
         //Adding a button for a new game
         JButton newgameButton = new JButton("NEW GAME");
         
-	
-      //Adding elements with GridBagConstraints
+        //Adding elements with GridBagConstraints
         this.gbc = new GridBagConstraints();
         this.gbc.fill = GridBagConstraints.HORIZONTAL;
         this.gbc.insets = new Insets(10,0,0,0);
@@ -136,21 +135,21 @@ public class BackPanel extends JPanel {
      * EventListeners associating the game buttons to their corresponding function
      * @param gamebuttons
      */
-    public void addGameButtonListeners(final JButton[] gamebuttons){
-            gamebuttons[1].addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    gridbox.undoLastOperation();
-                }
-            });
-            gamebuttons[2].addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    gridbox.clearBoard();
-                }
-            });
-    }	
     
+    public void addGameButtonListeners(final JButton[] gamebuttons){
+        gamebuttons[1].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                gridbox.undoLastOperation();
+            }
+        });
+        gamebuttons[2].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                gridbox.clearBoard();
+            }
+        });
+    }	
     
     /**
      * EventListener to make the difficulty buttons act as checkboxes
@@ -176,6 +175,4 @@ public class BackPanel extends JPanel {
         }
     }	
     
-    
-   
 }

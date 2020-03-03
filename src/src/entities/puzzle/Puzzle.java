@@ -1,17 +1,19 @@
 package entities.puzzle;
 
-
+import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import GUI.GridPanelLoad;
 import GUI.TextPopup;
 import core.Application;
 
 public class Puzzle {
 	
 	int[][] puzzleGrid;
-	private PuzzleModel model;
-	private PuzzleView view;
+	public static PuzzleModel model;
+	public static PuzzleModel load;
+	public static PuzzleView view;
+	
 	/**
 	 * Integer array of size 81 containing integer arrays of size 3. 
 	 *  [x][0] = GridSquare Type (DisplaySquare if 0, InputSquare if 1)
@@ -21,8 +23,12 @@ public class Puzzle {
 	
 	public Puzzle() {
 		
-		this.model = Application.getInstance().getModel().getPuzzleModel(1);
+		Puzzle.model = Application.getInstance().getModel().getPuzzleModel(1);
+		Puzzle.load = Application.getInstance().getModel().loadPuzzleModel();
+		
+		
 		view = new PuzzleView(model);
+		
 		
 		view.getUndoBtn().addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e)
@@ -48,8 +54,28 @@ public class Puzzle {
 			}
 		});
 		
+		/////////////////////////////////////////////////////////
+		view.getSaveBtn().addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				
+				view.getGridPanelLoad().saveState();
+				
+			}
+		});
+		
+		view.getLoadBtn().addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				
+				view.getGridPanelLoad().loadState();
+				
+			}
+		});
+		/////////////////////////////////////////////////////////////
 		
 		Application.getInstance().getView().addToFrame(view);
+		
 	}
 	
 }

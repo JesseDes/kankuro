@@ -3,16 +3,21 @@ package GUI;
 import javax.swing.*;
 
 import entities.puzzle.PuzzleModel;
+import entities.puzzle.Puzzle;
 
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 
 
 public class GridPanel extends JPanel implements FocusListener {
 	private GridLayout gridLayout;
-	private GridSquare[] gridSquares;
+	GridSquare[] gridSquares;
+	private GridSquare[] gridSquaresLoad;
 	private InputSquare inFocusInputSquare;
 	private InputSquare outFocusInputSquare;
 	private String currentFocusVal;
@@ -22,9 +27,11 @@ public class GridPanel extends JPanel implements FocusListener {
 	 * Constructor for GridPanel by ZHOU
 	 * creating 10*10
 	 */
-	public GridPanel(PuzzleModel data ) {
+	
+	public GridPanel(PuzzleModel data) {
 		//Instantiating and setting up properties
 		super();
+		
 		this.setBackground(Color.BLACK);
         this.setBorder(BorderFactory.createMatteBorder(2,3,2,3, Color.BLACK));
 		this.gridLayout = new GridLayout(10, 10, 4, 4);
@@ -36,7 +43,7 @@ public class GridPanel extends JPanel implements FocusListener {
 		this.gridSquares = new GridSquare[100];
 		this.populateGridPanel(data);	
 	}
-	
+
 
 	/**
 	 * Removes the text/value in the last edited InputSquare element
