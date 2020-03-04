@@ -53,6 +53,28 @@ public class AppModel {
 		
 		return puzzleList;
 	}
+		/////////////////////////////////////////////////////////////////////////////////////
+	/**
+	* {@inheritDoc}
+	* <p>
+	* loads puzzle
+	*/
+	public PuzzleModel loadPuzzleModel() {
+		String sql = "SELECT * FROM State WHERE id = " + 1 + ";";
+		PuzzleModel puzzle = null;
+		try {
+			Statement stmt  = _conn.createStatement();
+			ResultSet rs  = stmt.executeQuery(sql);
+			puzzle = new PuzzleModel(rs.getString("data"));	
+			stmt.close();
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+			
+		return puzzle;
+	}
+	///////////////////////////////////////////////////////////////////////////////////////
 	
 	
 	/**

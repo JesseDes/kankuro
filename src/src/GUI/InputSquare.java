@@ -58,7 +58,6 @@ public class InputSquare extends JTextField {
 	 */
 	public void setCorrectValue(int value) { this.correctValue = value; }
 	
-	
 	/**
 	 * Checks the current value with the accepted answer for this square, changes the square's 
 	 * color to green if valid, red if invalid, and white if empty (i.e. user deleted the value)
