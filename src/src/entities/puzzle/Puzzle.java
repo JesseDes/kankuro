@@ -47,6 +47,13 @@ public class Puzzle {
 					Application.getInstance().getView().addPopup(new TextPopup("Incorrect"));
 			}
 		});
+
+		view.getCloseBtn().addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				Application.getInstance().getView().addPopup(view.displaySavePrompt());
+			}
+		});
 		
 		view.displaySavePrompt().getCancelBtn().addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e)
