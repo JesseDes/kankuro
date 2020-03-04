@@ -1,4 +1,9 @@
 package core;
+
+import entities.MainMenu.MainMenu;
+import entities.puzzle.Puzzle;
+import entities.puzzle.PuzzleModel;
+
 /**
 * {@inheritDoc}
 * <p>
@@ -10,6 +15,8 @@ public class Application {
     
     private AppView _view = new AppView();
     private AppModel _model = new AppModel();
+    private MainMenu _menu;
+    private Puzzle _currentPuzzle;
     
     /**
     * {@inheritDoc}
@@ -21,7 +28,11 @@ public class Application {
     public static Application getInstance() {
     	
     	if(instance == null)
+    	{
     		instance = new Application();
+    		instance._menu = new MainMenu();
+    		instance.AppDisplayMenu();
+    	}
     	
     	return instance;
     }
@@ -43,6 +54,25 @@ public class Application {
     public AppModel getModel()
     {
     	return _model;
+    }
+    
+    public void AppDisplayMenu()
+    {
+    	if(_currentPuzzle != null)
+    	{
+    		_view.removeFromFrame(_currentPuzzle.display(), true);
+    		_currentPuzzle = null;
+    	}
+    	
+    	_view.addToFrame(_menu.display());
+    }
+    
+    public void AppSetPuzzle(PuzzleModel puzzleData)
+    {
+    	_currentPuzzle = new Puzzle(puzzleData);
+    	_view.removeFromFrame(_menu.display(), true);
+    	_view.removePopup();
+    	_view.addToFrame(_currentPuzzle.display());
     }
     
 }

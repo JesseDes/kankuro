@@ -44,11 +44,13 @@ public class DisplaySquare extends JPanel {
                     else { this.add(new JLabel()); }
                 }
             }
-            
-
+        	if(this.lowerValue.equals("") && this.upperValue.equals(""))
+        		setBackground(Color.DARK_GRAY);
+        	else
+        		setBackground(Color.gray);
     }
 
-
+/*
     @Override
     protected void paintComponent(Graphics g){
     	if(this.lowerValue.equals("") && this.upperValue.equals("")){
@@ -61,7 +63,7 @@ public class DisplaySquare extends JPanel {
             g.drawPolygon(this.lowerTriangle);
     	}
     }
-
+*/
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(this.SIZE, 40);

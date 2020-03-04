@@ -19,9 +19,9 @@ public class Puzzle {
 	 *  [x][2] = upper value if DisplaySquare, disregard if InputSquare. Default is -1
 	 */
 	
-	public Puzzle() {
+	public Puzzle(PuzzleModel puzzleData) {
 		
-		this.model = Application.getInstance().getModel().getPuzzleModel(1);
+		model = puzzleData;
 		view = new PuzzleView(model);
 		
 		view.getUndoBtn().addActionListener( new ActionListener() {
@@ -48,8 +48,14 @@ public class Puzzle {
 			}
 		});
 		
-		
-		Application.getInstance().getView().addToFrame(view);
+		view.getSaveBtn().addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				Application.getInstance().AppDisplayMenu();
+			}
+		});
 	}
+	
+	public PuzzleView display() { return view;}
 	
 }

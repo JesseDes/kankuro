@@ -18,6 +18,7 @@ public class PuzzleView extends JPanel {
 	JButton checkBtn;
 	JButton undoBtn;
 	JButton resetBtn;
+	JButton saveBtn;
 	
 	public PuzzleView(PuzzleModel model) {
 		this.gbl = new GridBagLayout();
@@ -28,7 +29,7 @@ public class PuzzleView extends JPanel {
 		this.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 		
 		//Instantiating Board label
-		Label gridbox_label = new Label("BOARD", "Calibri", 30);
+		Label gridbox_label = new Label(model.getName(), "Calibri", 30);
 		
 		gridbox = new GridPanel(model);
 		
@@ -58,6 +59,12 @@ public class PuzzleView extends JPanel {
         setGridBagConstraints(2, 3, 0.5, 0.5, 1, 30);
         resetBtn.setFont(new Font("Calibri", Font.BOLD, 16));
         this.add(resetBtn, this.gbc);
+        
+        saveBtn = new JButton("Save + Quit");
+        setGridBagConstraints(3, 3, 0.5, 0.5, 1, 30);
+        saveBtn.setFont(new Font("Calibri", Font.BOLD, 16));
+        this.add(saveBtn, this.gbc);
+        
 
 	}
 	
@@ -93,6 +100,10 @@ public class PuzzleView extends JPanel {
     
     public JButton getResetBtn() {
     	return resetBtn;
+    }
+    
+    public JButton getSaveBtn() {
+    	return saveBtn;
     }
     
     public GridPanel getGridPanel() {

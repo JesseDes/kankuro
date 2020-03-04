@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import entities.SampleMVCButton.SampleButtonModel;
 import entities.puzzle.*;
+import entities.puzzleSelector.PuzzleSelectorModel;
 
 /**
 * {@inheritDoc}
@@ -18,29 +18,42 @@ public class AppModel {
 
 	private static final String DB_URL = "jdbc:sqlite:data/kakuro.db";
 	private Connection _conn;
-
-   /**
-    * {@inheritDoc}
-    * <p>
-    * Retrieves button with matching ID, if none found returns an empty button;
-    */
-	public SampleButtonModel getButtonData(int id)
-	{
-		String sql = "SELECT * FROM Buttons WHERE id = " + id + ";";
-		SampleButtonModel button;
-		try {
+	
+	public PuzzleSelectorModel[] getPuzzleList(String difficulty) {
+		String sql = "SELECT * FROM puzzles WHERE Difficulty = '" + difficulty + "';";
+		String countSql = "SELECT COUNT(*) FROM puzzles WHERE Difficulty = '" + difficulty + "';";
+		int rowCount = 0;
+		
+		//retrieves the number of difficulties
+		try
+		{
 			Statement stmt  = _conn.createStatement();
-			ResultSet rs  = stmt.executeQuery(sql);
-			button = new SampleButtonModel(rs.getInt("id") , rs.getString("text"), rs.getInt("type") );
-				
+			ResultSet rs  = stmt.executeQuery(countSql);
+			rowCount = rs.getInt("COUNT(*)");
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
-			button = new SampleButtonModel(0,"SQL ERROR",0);
+		}
+		PuzzleSelectorModel puzzleList[] = new PuzzleSelectorModel[rowCount];
+		
+		try {
+			Statement stmt  = _conn.createStatement();
+			ResultSet rs  = stmt.executeQuery(sql);
+			rs.next();
+
+			for(int i =0 ; i < rowCount ;i++)
+			{
+				puzzleList[i] = new PuzzleSelectorModel(rs.getString("name"), rs.getInt("id") , rs.getString("Difficulty"));
+				rs.next();
+			}	
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 		
-		return button;
+		return puzzleList;
 	}
+	
 	
 	/**
     * {@inheritDoc}
@@ -53,7 +66,7 @@ public class AppModel {
 		try {
 			Statement stmt  = _conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
-			puzzle = new PuzzleModel(rs.getString("solution"));
+			puzzle = new PuzzleModel(rs.getString("solution") , rs.getString("name"));
 				
 		}
 		catch (SQLException e) {
@@ -62,6 +75,67 @@ public class AppModel {
 		
 		return puzzle;
 	}
+	
+	public PuzzleModel getPuzzleModel(String name) {
+		String sql = "SELECT * FROM puzzles WHERE name = '" + name + "';";
+		PuzzleModel puzzle = null;
+		try {
+			Statement stmt  = _conn.createStatement();
+			ResultSet rs  = stmt.executeQuery(sql);
+			puzzle = new PuzzleModel(rs.getString("solution") , rs.getString("name"));
+				
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return puzzle;
+	}
+	
+	/**
+	    * {@inheritDoc}
+	    * <p>
+	    * Retrieves a list of difficulties;
+	    */
+		public String[] getdifficulties() {
+			String sql = "SELECT title FROM difficulties";
+			String[] diffList = null;
+			String countSql = "SELECT COUNT(*) FROM difficulties";
+			int rowCount = 0;
+			
+			//retrieves the number of difficulties
+			try
+			{
+				Statement stmt  = _conn.createStatement();
+				ResultSet rs  = stmt.executeQuery(countSql);
+				rowCount = rs.getInt("COUNT(*)");
+			}
+			catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			
+			//retrieves difficulties
+			try {
+				Statement stmt  = _conn.createStatement();
+				ResultSet rs  = stmt.executeQuery(sql);
+				diffList = new String[rowCount];
+				int i =0;
+				
+				while(rs.next())
+				{
+					diffList[i] = rs.getString("title");
+					i++;
+				}
+					
+			}
+			catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+			
+			return diffList;
+		}
+	
+	
     /**
     * {@inheritDoc}
     * <p>

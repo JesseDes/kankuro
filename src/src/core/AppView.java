@@ -1,11 +1,12 @@
 package core;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridBagLayout;
 
 import javax.swing.*;
 
- 
 /**
 * {@inheritDoc}
 * <p>
@@ -27,7 +28,7 @@ public class AppView {
     public void addToFrame(Component comp)
     {
     	_appMain.add(comp);
-    	refresh();
+    	refreshMain();
     }
 	/**
      * {@inheritDoc}
@@ -39,27 +40,32 @@ public class AppView {
     {
     	_appPopup.removeAll();
     	_appPopup.add(comp);
-    	refresh();
+    	refreshPopup();
     }
 	/**
      * {@inheritDoc}
      * <p>
      *removes the component {@code comp} from the application Main panel
+     *@param isSilent if true removes the element without refreshing the output (meaning it will still be there until an add is called)
      */  
-    public void removeFromFrame(Component comp)
+    public void removeFromFrame(Component comp, boolean isSilent)
     {
     	_appMain.remove(comp);
-    	refresh();
+    	
+    	if(!isSilent)
+    		refreshMain();
     }
 	/**
      * {@inheritDoc}
      * <p>
      *Completely Clears the Main Panel
+     *@param isSilent if true removes the element without refreshing the output (meaning it will still be there until an add is called)
      */
-    public void removeAllFromFrame()
+    public void removeAllFromFrame(boolean isSilent)
     {
     	_appMain.removeAll();
-    	refresh();
+    	if(!isSilent)
+    		refreshMain();
     }
 	/**
      * {@inheritDoc}
@@ -69,7 +75,7 @@ public class AppView {
     public void removePopup()
     {
     	_appPopup.removeAll();
-    	refresh();
+    	refreshPopup();
 
     }
     /**
@@ -88,31 +94,29 @@ public class AppView {
     	_appPopup = new JPanel();
     	_appPopup.setOpaque(false);
     	_layeredPane.add(_appMain,0,0);
-    	_layeredPane.add(_appPopup,1,0);
+    	_layeredPane.add(_appPopup, 1, 0);
     	_appFrame.add(_layeredPane);
-    	
     }
     /**
      * {@inheritDoc}
      * <p>
      *Refreshes the view to reflect any added or removed components.
      */
-     private void refresh()
+     private void refreshMain()
      {
      	_appMain.setSize(_appMain.getPreferredSize());
-     	_appPopup.setSize(_appPopup.getPreferredSize());
-     	_layeredPane.revalidate();
-     	_layeredPane.repaint();
+     	//layeredPane.revalidate();
+     	//_layeredPane.repaint();
      	
      	Dimension size = _appMain.getPreferredSize();
-     	
+     /*	
      	//Window will resize to the largest x or y value
      	if(_appPopup.getPreferredSize().height > size.height)
      		size.height = _appPopup.getPreferredSize().height;
      	
      	if(_appPopup.getPreferredSize().width > size.width)
      		size.width = _appPopup.getPreferredSize().width;
-     	
+     	*/
      	//Calculates taskbar Height and border width of the window;
      	_appFrame.pack();
      	size.height += _appFrame.getHeight() - _appFrame.getContentPane().getHeight() ;
@@ -121,6 +125,14 @@ public class AppView {
      	//sets size
      	_appFrame.setSize(size);
      	
+     }
+     
+     private void refreshPopup()
+     {
+      	_appPopup.setSize(_appPopup.getPreferredSize());
+     	_appPopup.setBounds(_appMain.getWidth() / 2 - _appPopup.getWidth() / 2, _appMain.getHeight() / 2 - _appPopup.getHeight() / 2,_appPopup.getWidth() , _appPopup.getHeight());
+     	_appPopup.revalidate();
+     	_appPopup.repaint();
      }
     
 }
