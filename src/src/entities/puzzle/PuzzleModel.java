@@ -1,5 +1,6 @@
 package entities.puzzle;
 
+import java.util.Arrays;
 
 public class PuzzleModel {
 	
@@ -11,8 +12,9 @@ public class PuzzleModel {
 	 *  2 - input cell. [2, solution value, 0]
 	 */
     private int[][] sol = new int[100][3];
+    private String name;
     
-    public PuzzleModel(String solution){
+    public PuzzleModel(String solution, String name){
         String solarr[] = solution.split(",");
         for(int i = 0; i < sol.length; i++) {
         	int[] cell_data = new int[3];
@@ -22,6 +24,7 @@ public class PuzzleModel {
         	}
         	sol[i] = cell_data;
         }
+        this.name = name;
     }
     
     public int[][] getSolution(){
@@ -33,6 +36,7 @@ public class PuzzleModel {
 		return this.sol.length;
 	}
 	
+	public String getName()      { return this.name;}
 	public int getType(int index) { return this.sol[index][0]; }
 	public int getLoVal(int index) { return this.sol[index][1]; }
 	public int getUpVal(int index) { return this.sol[index][2]; }

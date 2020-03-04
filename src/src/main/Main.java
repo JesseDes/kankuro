@@ -8,7 +8,6 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Application app = Application.getInstance();
-		Puzzle puzzle = new Puzzle();
 	
 	}
 
