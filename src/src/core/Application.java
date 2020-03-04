@@ -69,9 +69,9 @@ public class Application {
     
     public void AppSetPuzzle(PuzzleModel puzzleData)
     {
+    	_view.removePopup();
     	_currentPuzzle = new Puzzle(puzzleData);
     	_view.removeFromFrame(_menu.display(), true);
-    	_view.removePopup();
     	_view.addToFrame(_currentPuzzle.display());
     }
     

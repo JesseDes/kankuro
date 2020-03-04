@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.*;
+import GUI.ActionCancelPopup;
 import GUI.GridPanel;
 import GUI.Label;
 
@@ -18,7 +19,9 @@ public class PuzzleView extends JPanel {
 	JButton checkBtn;
 	JButton undoBtn;
 	JButton resetBtn;
-	JButton saveBtn;
+	JButton closeBtn;
+	ActionCancelPopup loadPrompt;
+	ActionCancelPopup savePrompt;
 	
 	public PuzzleView(PuzzleModel model) {
 		this.gbl = new GridBagLayout();
@@ -60,11 +63,13 @@ public class PuzzleView extends JPanel {
         resetBtn.setFont(new Font("Calibri", Font.BOLD, 16));
         this.add(resetBtn, this.gbc);
         
-        saveBtn = new JButton("Save + Quit");
-        setGridBagConstraints(3, 3, 0.5, 0.5, 1, 30);
-        saveBtn.setFont(new Font("Calibri", Font.BOLD, 16));
-        this.add(saveBtn, this.gbc);
+        closeBtn =  new JButton("Main Menu");
+        setGridBagConstraints(0, 4, 0.5, 0.5, 1, 30);
+        closeBtn.setFont(new Font("Calibri", Font.BOLD, 16));
+        this.add(closeBtn, this.gbc); 
         
+        loadPrompt = new ActionCancelPopup(new Dimension(350,200), "Load previous save?" , "yes" , "no");
+        savePrompt = new ActionCancelPopup(new Dimension(350,200), "Save before Quitting?" , "Save" , "Quit");
 
 	}
 	
@@ -102,8 +107,16 @@ public class PuzzleView extends JPanel {
     	return resetBtn;
     }
     
-    public JButton getSaveBtn() {
-    	return saveBtn;
+    public JButton getCloseBtn() {
+    	return closeBtn;
+    }
+    
+    public ActionCancelPopup displayLoadPrompt() {
+    	return loadPrompt;
+    }
+    
+    public ActionCancelPopup displaySavePrompt() {
+    	return savePrompt;
     }
     
     public GridPanel getGridPanel() {

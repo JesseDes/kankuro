@@ -59,20 +59,58 @@ public class AppModel {
 	* <p>
 	* loads puzzle
 	*/
-	public PuzzleModel loadPuzzleModel() {
-		String sql = "SELECT * FROM State WHERE id = " + 1 + ";";
-		PuzzleModel puzzle = null;
+	public void savePuzzleData(int id, String saveData , boolean isUpdate) {
+		String sql;
+		
+		if(isUpdate)
+			sql = "UPDATE State SET data = '" + saveData + "' WHERE id = " + id + ";";
+		else
+			sql = "INSERT INTO State ( 'PuzzleId', 'data') VALUES ( ' " + id + "', '" + saveData + "');";
+
 		try {
 			Statement stmt  = _conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
-			puzzle = new PuzzleModel(rs.getString("data"));	
 			stmt.close();
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-			
-		return puzzle;
+	}
+	/**
+	* {@inheritDoc}
+	* <p>
+	* loads puzzle
+	*/
+	public String getPuzzleSave(int id) {
+		String sql = "SELECT * FROM State WHERE PuzzleId = " + id + ";";
+		String countSQl = "SELECT COUNT(*) FROM State WHERE PuzzleId = " + id + ";";
+		ResultSet rs;
+		int rowCount = 0;
+		String data = "";
+		try {
+			Statement stmt  = _conn.createStatement();
+			rs  = stmt.executeQuery(countSQl);
+			rowCount = rs.getInt("COUNT(*)");
+			stmt.close();
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		if(rowCount > 0)
+		{
+			try {
+				Statement stmt  = _conn.createStatement();
+				rs  = stmt.executeQuery(sql);
+				data = rs.getString("data");	
+				stmt.close();
+			}
+			catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		return data;
 	}
 	///////////////////////////////////////////////////////////////////////////////////////
 	
@@ -88,7 +126,12 @@ public class AppModel {
 		try {
 			Statement stmt  = _conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
-			puzzle = new PuzzleModel(rs.getString("solution") , rs.getString("name"));
+			String saveData = getPuzzleSave(rs.getInt("id"));
+			
+			if(saveData.equals(""))
+				puzzle = new PuzzleModel(rs.getString("solution") , rs.getString("name") , rs.getInt("id"));
+			else
+				puzzle = new PuzzleModel(rs.getString("solution") , saveData , rs.getString("name") , rs.getInt("id"));
 				
 		}
 		catch (SQLException e) {
@@ -104,8 +147,11 @@ public class AppModel {
 		try {
 			Statement stmt  = _conn.createStatement();
 			ResultSet rs  = stmt.executeQuery(sql);
-			puzzle = new PuzzleModel(rs.getString("solution") , rs.getString("name"));
-				
+			String saveData = getPuzzleSave(rs.getInt("id"));
+			if(saveData.equals(""))
+				puzzle = new PuzzleModel(rs.getString("solution") , rs.getString("name") , rs.getInt("id"));
+			else
+				puzzle = new PuzzleModel(rs.getString("solution") , saveData , rs.getString("name") , rs.getInt("id"));				
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());

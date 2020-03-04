@@ -48,12 +48,40 @@ public class Puzzle {
 			}
 		});
 		
-		view.getSaveBtn().addActionListener( new ActionListener() {
+		view.displaySavePrompt().getCancelBtn().addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
+				Application.getInstance().getView().removePopup();
 				Application.getInstance().AppDisplayMenu();
 			}
 		});
+		
+		view.displaySavePrompt().getActionBtn().addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				Application.getInstance().getModel().savePuzzleData(model.getId(), view.getGridPanel().getSaveData(), model.hasSave());
+				Application.getInstance().getView().removePopup();
+				Application.getInstance().AppDisplayMenu();
+			}
+		});
+		
+		view.displayLoadPrompt().getCancelBtn().addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				Application.getInstance().getView().removePopup();
+			}
+		});
+		
+		view.displayLoadPrompt().getActionBtn().addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				Application.getInstance().getView().removePopup();
+				view.getGridPanel().loadSaveFile(model.getSaveData());
+			}
+		});
+		
+		if(model.hasSave())
+			Application.getInstance().getView().addPopup(view.displayLoadPrompt());
 	}
 	
 	public PuzzleView display() { return view;}

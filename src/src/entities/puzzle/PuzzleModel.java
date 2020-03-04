@@ -12,9 +12,12 @@ public class PuzzleModel {
 	 *  2 - input cell. [2, solution value, 0]
 	 */
     private int[][] sol = new int[100][3];
+    private String[] saveData = new String[100];
+    private boolean hasSave;
     private String name;
+    private int id;
     
-    public PuzzleModel(String solution, String name){
+    public PuzzleModel(String solution, String name , int id){
         String solarr[] = solution.split(",");
         for(int i = 0; i < sol.length; i++) {
         	int[] cell_data = new int[3];
@@ -25,13 +28,37 @@ public class PuzzleModel {
         	sol[i] = cell_data;
         }
         this.name = name;
+        this.hasSave = false;
+        this.id = id;
+    }
+    
+    public PuzzleModel(String solution, String save , String name , int id){
+        String solarr[] = solution.split(",");
+        for(int i = 0; i < sol.length; i++) {
+        	int[] cell_data = new int[3];
+        	String raw_data[] = solarr[i].split(" ");
+        	for(int j = 0; j< raw_data.length; j++) {
+        		cell_data[j] = Integer.parseInt(raw_data[j]);
+        	}
+        	sol[i] = cell_data;
+        }
+        
+        saveData = save.split(",");
+
+        
+        this.hasSave = true;
+        this.name = name;
+        this.id = id;
     }
     
     public int[][] getSolution(){
     	return this.sol;
     }
     
-	
+	public String[] getSaveData() {
+		return this.saveData;
+	}
+    
 	public int getPuzzleGridSize () {
 		return this.sol.length;
 	}
@@ -40,5 +67,6 @@ public class PuzzleModel {
 	public int getType(int index) { return this.sol[index][0]; }
 	public int getLoVal(int index) { return this.sol[index][1]; }
 	public int getUpVal(int index) { return this.sol[index][2]; }
-    
+    	public boolean hasSave() { return this.hasSave;}
+   	public int getId() { return this.id;}
 }

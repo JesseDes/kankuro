@@ -123,6 +123,29 @@ public class GridPanel extends JPanel implements FocusListener {
     	
     	return result;
     }
+
+	public void loadSaveFile(String[] saveData) {
+		for(int i = 0; i < gridSquares.length; i++) {
+			
+			if(gridSquares[i].getType() == 1) 
+				gridSquares[i].getIs().setText(saveData[i]);
+				
+		}
+	}
+	
+	public String getSaveData() {
+		String[] saveData = new String[100];
+		
+		for(int i = 0; i < gridSquares.length; i++) {
+			
+			if(gridSquares[i].getType() == 1)
+				saveData[i] = gridSquares[i].getIs().getText();
+			else
+				saveData[i] = "-";
+		}
+		
+		return String.join(",", saveData);
+	}
 	
 	//used for example with AppModel by ZHOU
 	public void populateGridPanel(PuzzleModel puzzleArr ) {
