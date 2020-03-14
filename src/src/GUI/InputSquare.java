@@ -8,6 +8,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
+/**
+ * 
+ * @author Antoine Farley
+ *The textfield for the gridSquare can validate if the textfield current input matches an expected input
+ */
 public class InputSquare extends JTextField {
 	private int index;
 	private int correctValue;

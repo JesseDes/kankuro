@@ -3,6 +3,12 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * 
+ * @author Antoine Farley
+ *Display Square is the Jpanel for each square in the puzzle grid
+ */
+
 public class DisplaySquare extends JPanel {
     private final int SIZE = 70;
     private String lowerValue;
@@ -50,20 +56,9 @@ public class DisplaySquare extends JPanel {
         		setBackground(Color.gray);
     }
 
-/*
-    @Override
-    protected void paintComponent(Graphics g){
-    	if(this.lowerValue.equals("") && this.upperValue.equals("")){
-    		super.setBackground(Color.DARK_GRAY);
-    	} 
-    	else {
-    		super.setBackground(Color.gray);
-            super.paintComponent(g);
-            g.setColor(Color.BLACK);
-            g.drawPolygon(this.lowerTriangle);
-    	}
-    }
-*/
+/**
+ * returns preferred size;
+ */
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(this.SIZE, 40);

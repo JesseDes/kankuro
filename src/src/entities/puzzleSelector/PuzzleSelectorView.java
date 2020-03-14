@@ -25,10 +25,18 @@ import javax.swing.UIManager;
 import GUI.Label;
 import GUI.Utils;
 
+/**
+ * View for puzzle Selector contains a scrollable panel that is loaded with preview image of the puzzle
+ * and a button that contains the text "Play " + name
+ * @author Jesse Desmarais
+ *
+ */
+
 public class PuzzleSelectorView extends JPanel 
 {
 	
 	private JButton[] _buttonList;
+	
 	
 	public PuzzleSelectorView(PuzzleSelectorModel[] puzzleList) throws IOException
 	{
@@ -41,6 +49,7 @@ public class PuzzleSelectorView extends JPanel
 		_buttonList = new JButton[puzzleList.length];
 		this.setPreferredSize(size);
 		
+		//for each puzzle fetch the image and add a button
 		for(int i =0 ; i < puzzleList.length;i++)
 		{
 			BufferedImage myPicture = ImageIO.read(new File("img/" + puzzleList[i].getName()+".PNG"));
@@ -68,5 +77,9 @@ public class PuzzleSelectorView extends JPanel
 		this.add(scrollPane);
 	}
 	
+	/**
+	 * 
+	 * @return list of puzzle play JButtons
+	 */
 	JButton[] getButtonList() { return _buttonList;}
 }

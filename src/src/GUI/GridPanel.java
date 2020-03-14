@@ -13,6 +13,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
+/**
+ * 
+ * @author Antoine Farley
+ * @author Marc Hegedus
+ *
+ */
 
 public class GridPanel extends JPanel implements FocusListener {
 	private GridLayout gridLayout;
@@ -147,7 +153,6 @@ public class GridPanel extends JPanel implements FocusListener {
 		return String.join(",", saveData);
 	}
 	
-	//used for example with AppModel by ZHOU
 	public void populateGridPanel(PuzzleModel puzzleArr ) {
 		for (int i = 0; i< puzzleArr.getPuzzleGridSize(); i++) {
 			if(puzzleArr.getType(i) != 2){

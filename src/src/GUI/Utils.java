@@ -1,6 +1,12 @@
 package GUI;
 
 import java.awt.GridBagConstraints;
+/**
+ * Utils class for any GUI specific methods
+ * @author Antoine Farley
+ * @author Jesse Desmarais
+ *
+ */
 
 public class Utils {
 

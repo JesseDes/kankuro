@@ -10,6 +10,8 @@ import javax.swing.*;
 /**
 * {@inheritDoc}
 * <p>
+* @author Jesse Desmarais
+* @author Antoine Farley 
 * {@code AppView} Is the application view. It creates the primary window for the application.
 * containers, buttons and other GUI elements can be added with the {@code addtoFrame} method.
 */
@@ -24,6 +26,7 @@ public class AppView {
     * {@inheritDoc}
     * <p>
     *Adds the component {@code comp} to the application main panel
+    *@param Component any Java swing component
     */
     public void addToFrame(Component comp)
     {
@@ -35,6 +38,7 @@ public class AppView {
      * <p>
      *Adds the component {@code comp} to the application popup panel (in front of Main).
      *Note : Only 1 Popup is allowed at a time. Existing popups will be removed.
+     *@param Any Java swing component we want to add to the application
      */    
     public void addPopup(Component comp)
     {
@@ -81,7 +85,7 @@ public class AppView {
     /**
     * {@inheritDoc}
     * <p>
-    *Class Constructor
+    *Class Constructor creates JFrame and layeredPane adds Main and popup Panels to the layered pane.
     */
     public AppView() {
     	_appFrame = new JFrame();
@@ -105,18 +109,9 @@ public class AppView {
      private void refreshMain()
      {
      	_appMain.setSize(_appMain.getPreferredSize());
-     	//layeredPane.revalidate();
-     	//_layeredPane.repaint();
      	
      	Dimension size = _appMain.getPreferredSize();
-     /*	
-     	//Window will resize to the largest x or y value
-     	if(_appPopup.getPreferredSize().height > size.height)
-     		size.height = _appPopup.getPreferredSize().height;
-     	
-     	if(_appPopup.getPreferredSize().width > size.width)
-     		size.width = _appPopup.getPreferredSize().width;
-     	*/
+
      	//Calculates taskbar Height and border width of the window;
      	_appFrame.pack();
      	size.height += _appFrame.getHeight() - _appFrame.getContentPane().getHeight() ;
@@ -127,6 +122,11 @@ public class AppView {
      	
      }
      
+     /**
+      * {@inheritDoc}
+      * <p>
+      *Refreshes the view to reflect any added or removed components.
+      */     
      private void refreshPopup()
      {
       	_appPopup.setSize(_appPopup.getPreferredSize());

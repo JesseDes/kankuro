@@ -6,6 +6,16 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JComponent;
 
+/**
+ * Types 
+ * 0 -> Blank display square
+ * 1 -> Display Square displaying summation
+ * 2 -> Input square
+ * 
+ * @author Antoine Farley
+ * GridSquare that makes up a puzzle. Contains a Display square if grid needs to show sums or is blank or contains an 
+ * input square if square is meant to accept user input
+ */
 public class GridSquare extends JComponent {
 	private DisplaySquare ds;
 	private InputSquare is;

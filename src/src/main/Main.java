@@ -1,6 +1,5 @@
 package main;
 
-import GUI.BackPanel;
 import core.*;
 import entities.puzzle.*;
 public class Main {

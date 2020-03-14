@@ -12,18 +12,31 @@ import GUI.GridPanel;
 import GUI.Label;
 
 
+/**
+ * 
+ * @author Antoine Farley
+ * @author Marc Hegedus
+ * @author Jesse Desmarais
+ * Puzzle view contains puzzle grid , buttons for check, undo, reset and leave and load/save prompts
+ */
+
 public class PuzzleView extends JPanel {
 	
 	private GridBagLayout gbl;
 	private GridBagConstraints gbc;
 	private GridPanel gridbox;
-	JButton checkBtn;
-	JButton undoBtn;
-	JButton resetBtn;
-	JButton closeBtn;
-	ActionCancelPopup loadPrompt;
-	ActionCancelPopup savePrompt;
+	private JButton checkBtn;
+	private JButton undoBtn;
+	private JButton resetBtn;
+	private JButton closeBtn;
+	private ActionCancelPopup loadPrompt;
+	private ActionCancelPopup savePrompt;
 	
+	
+	/**
+	 * constructor for view. Creates the gridBag constraints and places the grid, buttons and instantiates the prompts
+	 * @param model Model Data for the view used to generate grid puzzle
+	 */
 	public PuzzleView(PuzzleModel model) {
 		this.gbl = new GridBagLayout();
 		this.gbc = new GridBagConstraints();
@@ -65,7 +78,7 @@ public class PuzzleView extends JPanel {
         this.add(resetBtn, this.gbc);
         
         closeBtn =  new JButton("Main Menu");
-        setGridBagConstraints(0, 4, 0.5, 0.5, 1, 30);
+        setGridBagConstraints(0, 4, 0.5, 0.5, 3, 30);
         closeBtn.setFont(new Font("Calibri", Font.BOLD, 16));
         this.add(closeBtn, this.gbc); 
         
@@ -96,30 +109,60 @@ public class PuzzleView extends JPanel {
         if (!ipady.equals(-1)){ this.gbc.ipady = (int)ipady; }
     }
     
+    /**
+     * 
+     * @return check JButton reference
+     */
+    
     public JButton getCheckBtn() {
     	return checkBtn;
     }
     
+    /**
+     * 
+     * @return undo JButton reference
+     */    
+    
     public JButton getUndoBtn() {
     	return undoBtn;
     }
-    
+    /**
+     * 
+     * @return reset JButton reference
+     */
     public JButton getResetBtn() {
     	return resetBtn;
     }
     
+    /**
+     * 
+     * @return close JButton reference
+     */
     public JButton getCloseBtn() {
     	return closeBtn;
     }
+    
+    /**
+     * 
+     * @return load popup reference
+     */    
     
     public ActionCancelPopup displayLoadPrompt() {
     	return loadPrompt;
     }
     
+    /**
+     * 
+     * @return save popup reference
+     */   
     public ActionCancelPopup displaySavePrompt() {
     	return savePrompt;
     }
     
+    /**
+     * 
+     * @return gridPanel reference
+     */   
     public GridPanel getGridPanel() {
     	return gridbox;
     }
