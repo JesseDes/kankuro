@@ -6,6 +6,16 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JComponent;
 
+/**
+ * Types 
+ * 0 -> Blank display square
+ * 1 -> Display Square displaying summation
+ * 2 -> Input square
+ * 
+ * @author Antoine Farley
+ * GridSquare that makes up a puzzle. Contains a Display square if grid needs to show sums or is blank or contains an 
+ * input square if square is meant to accept user input
+ */
 public class GridSquare extends JComponent {
 	private DisplaySquare ds;
 	private InputSquare is;
@@ -38,9 +48,7 @@ public class GridSquare extends JComponent {
 			this.is.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 					
-		            if (
-		            		(is.getText().length()<=1 && ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') 
-		            		|| ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+		            if ((is.getText().length()<=1 && ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
 		               is.setEditable(true);
 		            } else {
 		            if ((is.getText().length()<=1 && ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') 
@@ -112,7 +120,7 @@ public class GridSquare extends JComponent {
 	 * @return true if correct answers, false if not
 	 */
 	public boolean checkValue() {
-		if(this.getType()==1) { return this.getIs().checkValue(); }
+		if(this.getType()==1) { return this.getIs().showValue(); }
 		return false;
 	}
 	

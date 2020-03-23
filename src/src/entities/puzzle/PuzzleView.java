@@ -1,24 +1,42 @@
 package entities.puzzle;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.*;
+import GUI.ActionCancelPopup;
 import GUI.GridPanel;
 import GUI.Label;
 
+
+/**
+ * 
+ * @author Antoine Farley
+ * @author Marc Hegedus
+ * @author Jesse Desmarais
+ * Puzzle view contains puzzle grid , buttons for check, undo, reset and leave and load/save prompts
+ */
 
 public class PuzzleView extends JPanel {
 	
 	private GridBagLayout gbl;
 	private GridBagConstraints gbc;
 	private GridPanel gridbox;
-	JButton checkBtn;
-	JButton undoBtn;
-	JButton resetBtn;
+	private JButton checkBtn;
+	private JButton undoBtn;
+	private JButton resetBtn;
+	private JButton closeBtn;
+	private ActionCancelPopup loadPrompt;
+	private ActionCancelPopup savePrompt;
 	
+	
+	/**
+	 * constructor for view. Creates the gridBag constraints and places the grid, buttons and instantiates the prompts
+	 * @param model Model Data for the view used to generate grid puzzle
+	 */
 	public PuzzleView(PuzzleModel model) {
 		this.gbl = new GridBagLayout();
 		this.gbc = new GridBagConstraints();
@@ -28,7 +46,7 @@ public class PuzzleView extends JPanel {
 		this.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 		
 		//Instantiating Board label
-		Label gridbox_label = new Label("BOARD", "Calibri", 30);
+		Label gridbox_label = new Label(model.getName(), "Calibri", 30);
 		
 		gridbox = new GridPanel(model);
 		
@@ -58,6 +76,14 @@ public class PuzzleView extends JPanel {
         setGridBagConstraints(2, 3, 0.5, 0.5, 1, 30);
         resetBtn.setFont(new Font("Calibri", Font.BOLD, 16));
         this.add(resetBtn, this.gbc);
+        
+        closeBtn =  new JButton("Main Menu");
+        setGridBagConstraints(0, 4, 0.5, 0.5, 3, 30);
+        closeBtn.setFont(new Font("Calibri", Font.BOLD, 16));
+        this.add(closeBtn, this.gbc); 
+        
+        loadPrompt = new ActionCancelPopup(new Dimension(350,200), "Load previous save?" , "yes" , "no");
+        savePrompt = new ActionCancelPopup(new Dimension(350,200), "Save before Quitting?" , "Save" , "Quit");
 
 	}
 	
@@ -83,18 +109,60 @@ public class PuzzleView extends JPanel {
         if (!ipady.equals(-1)){ this.gbc.ipady = (int)ipady; }
     }
     
+    /**
+     * 
+     * @return check JButton reference
+     */
+    
     public JButton getCheckBtn() {
     	return checkBtn;
     }
     
+    /**
+     * 
+     * @return undo JButton reference
+     */    
+    
     public JButton getUndoBtn() {
     	return undoBtn;
     }
-    
+    /**
+     * 
+     * @return reset JButton reference
+     */
     public JButton getResetBtn() {
     	return resetBtn;
     }
     
+    /**
+     * 
+     * @return close JButton reference
+     */
+    public JButton getCloseBtn() {
+    	return closeBtn;
+    }
+    
+    /**
+     * 
+     * @return load popup reference
+     */    
+    
+    public ActionCancelPopup displayLoadPrompt() {
+    	return loadPrompt;
+    }
+    
+    /**
+     * 
+     * @return save popup reference
+     */   
+    public ActionCancelPopup displaySavePrompt() {
+    	return savePrompt;
+    }
+    
+    /**
+     * 
+     * @return gridPanel reference
+     */   
     public GridPanel getGridPanel() {
     	return gridbox;
     }

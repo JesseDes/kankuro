@@ -2,17 +2,28 @@ package GUI;
 
 import javax.swing.*;
 
+import core.Application;
 import entities.puzzle.PuzzleModel;
+import entities.puzzle.Puzzle;
 
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 
+/**
+ * 
+ * @author Antoine Farley
+ * @author Marc Hegedus
+ *
+ */
 
 public class GridPanel extends JPanel implements FocusListener {
 	private GridLayout gridLayout;
-	private GridSquare[] gridSquares;
+	GridSquare[] gridSquares;
 	private InputSquare inFocusInputSquare;
 	private InputSquare outFocusInputSquare;
 	private String currentFocusVal;
@@ -22,9 +33,11 @@ public class GridPanel extends JPanel implements FocusListener {
 	 * Constructor for GridPanel by ZHOU
 	 * creating 10*10
 	 */
-	public GridPanel(PuzzleModel data ) {
+	
+	public GridPanel(PuzzleModel data) {
 		//Instantiating and setting up properties
 		super();
+		
 		this.setBackground(Color.BLACK);
         this.setBorder(BorderFactory.createMatteBorder(2,3,2,3, Color.BLACK));
 		this.gridLayout = new GridLayout(10, 10, 4, 4);
@@ -36,7 +49,7 @@ public class GridPanel extends JPanel implements FocusListener {
 		this.gridSquares = new GridSquare[100];
 		this.populateGridPanel(data);	
 	}
-	
+
 
 	/**
 	 * Removes the text/value in the last edited InputSquare element
@@ -95,7 +108,25 @@ public class GridPanel extends JPanel implements FocusListener {
         //Recording current value of output
         outFocusInputSquare = ((InputSquare) e.getSource());
         
-        outFocusInputSquare.checkValue();
+        System.out.println((Application.getInstance().getModel().getCurrentDifficulty()));
+        //TODO: Call check value depending on difficulty
+        if(Application.getInstance().getModel().getCurrentDifficulty().equals("Easy"))
+        	outFocusInputSquare.showValue();
+        else if(Application.getInstance().getModel().getCurrentDifficulty().equals("Medium"))
+        {
+        	//on medium check all input in current row / column if all are valid 
+
+        	
+        	//gridSquares[0].getType() if type == 2 it is an input square
+        	//gridSquares[0].getIs().isValid(); returns if it's valid or not
+        	//gridSquares[0].getIs().showValue() //shows red or green
+        	
+        	
+        }
+        else
+        {
+        	//if it's hard do nothing
+        }
         
         //Changing border color of outFocus element to Black
         inFocusInputSquare.setBorder(BorderFactory.createLineBorder(Color.black, 0));
@@ -116,8 +147,30 @@ public class GridPanel extends JPanel implements FocusListener {
     	
     	return result;
     }
+
+	public void loadSaveFile(String[] saveData) {
+		for(int i = 0; i < gridSquares.length; i++) {
+			
+			if(gridSquares[i].getType() == 1) 
+				gridSquares[i].getIs().setText(saveData[i]);
+				
+		}
+	}
 	
-	//used for example with AppModel by ZHOU
+	public String getSaveData() {
+		String[] saveData = new String[100];
+		
+		for(int i = 0; i < gridSquares.length; i++) {
+			
+			if(gridSquares[i].getType() == 1)
+				saveData[i] = gridSquares[i].getIs().getText();
+			else
+				saveData[i] = "-";
+		}
+		
+		return String.join(",", saveData);
+	}
+	
 	public void populateGridPanel(PuzzleModel puzzleArr ) {
 		for (int i = 0; i< puzzleArr.getPuzzleGridSize(); i++) {
 			if(puzzleArr.getType(i) != 2){
@@ -134,5 +187,5 @@ public class GridPanel extends JPanel implements FocusListener {
 
 		}
 	}
-
+	
 }
