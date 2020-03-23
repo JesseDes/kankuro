@@ -36,6 +36,7 @@ public class PuzzleSelector {
 			_view.getButtonList()[i].addActionListener( new ActionListener() {
 				public void actionPerformed(ActionEvent e)
 				{
+					Application.getInstance().getModel().setCurrentDifficulty(_model[0].getDifficulty());
 					//retrieves puzzle from name which is retrieve form button clicked on
 					//substring 5 removes "play " part from button text which has format "Play " + name
 					PuzzleModel puzMod = Application.getInstance().getModel().getPuzzleModel(e.getActionCommand().substring(5));

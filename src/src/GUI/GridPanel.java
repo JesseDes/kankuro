@@ -2,6 +2,7 @@ package GUI;
 
 import javax.swing.*;
 
+import core.Application;
 import entities.puzzle.PuzzleModel;
 import entities.puzzle.Puzzle;
 
@@ -23,7 +24,6 @@ import java.util.*;
 public class GridPanel extends JPanel implements FocusListener {
 	private GridLayout gridLayout;
 	GridSquare[] gridSquares;
-	private GridSquare[] gridSquaresLoad;
 	private InputSquare inFocusInputSquare;
 	private InputSquare outFocusInputSquare;
 	private String currentFocusVal;
@@ -108,7 +108,25 @@ public class GridPanel extends JPanel implements FocusListener {
         //Recording current value of output
         outFocusInputSquare = ((InputSquare) e.getSource());
         
-        outFocusInputSquare.checkValue();
+        System.out.println((Application.getInstance().getModel().getCurrentDifficulty()));
+        //TODO: Call check value depending on difficulty
+        if(Application.getInstance().getModel().getCurrentDifficulty().equals("Easy"))
+        	outFocusInputSquare.showValue();
+        else if(Application.getInstance().getModel().getCurrentDifficulty().equals("Medium"))
+        {
+        	//on medium check all input in current row / column if all are valid 
+
+        	
+        	//gridSquares[0].getType() if type == 2 it is an input square
+        	//gridSquares[0].getIs().isValid(); returns if it's valid or not
+        	//gridSquares[0].getIs().showValue() //shows red or green
+        	
+        	
+        }
+        else
+        {
+        	//if it's hard do nothing
+        }
         
         //Changing border color of outFocus element to Black
         inFocusInputSquare.setBorder(BorderFactory.createLineBorder(Color.black, 0));
@@ -169,5 +187,5 @@ public class GridPanel extends JPanel implements FocusListener {
 
 		}
 	}
-
+	
 }

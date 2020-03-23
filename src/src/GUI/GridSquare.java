@@ -48,9 +48,7 @@ public class GridSquare extends JComponent {
 			this.is.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 					
-		            if (
-		            		(is.getText().length()<=1 && ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') 
-		            		|| ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+		            if ((is.getText().length()<=1 && ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') || ke.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
 		               is.setEditable(true);
 		            } else {
 		            if ((is.getText().length()<=1 && ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') 
@@ -122,7 +120,7 @@ public class GridSquare extends JComponent {
 	 * @return true if correct answers, false if not
 	 */
 	public boolean checkValue() {
-		if(this.getType()==1) { return this.getIs().checkValue(); }
+		if(this.getType()==1) { return this.getIs().showValue(); }
 		return false;
 	}
 	

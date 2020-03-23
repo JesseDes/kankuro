@@ -29,7 +29,7 @@ public class InputSquare extends JTextField {
 		this.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.WHITE));
 		this.setFont(new Font("Calibri", Font.BOLD, 16));
 		this.index = index;
-		this.correctValue = correctValue;
+		this.correctValue = correctValue;		
 	}
 	
 	/**
@@ -49,10 +49,16 @@ public class InputSquare extends JTextField {
 	 * @return Integer representing the current value, returns -1 if empty
 	 */
 	public int getCurrentValue() { 
-		if(!this.getText().equals("")) {
-			return (int)Integer.valueOf(this.getText()); 
+		try {	
+			if(!this.getText().equals("")) {
+				return (int)Integer.valueOf(this.getText()); 
+			}
+			else {
+				return -1;
+			}
 		}
-		else {
+		catch(NullPointerException e)
+		{
 			return -1;
 		}
 	}
@@ -68,7 +74,7 @@ public class InputSquare extends JTextField {
 	 * color to green if valid, red if invalid, and white if empty (i.e. user deleted the value)
 	 * @return true if valid answer, false if not
 	 */
-	public boolean checkValue() { 
+	public boolean showValue() { 
 		boolean res = this.getCorrectValue()==this.getCurrentValue();
 		if (this.getCurrentValue()==-1) {
 			this.setBackground(Color.white);
@@ -82,6 +88,18 @@ public class InputSquare extends JTextField {
 
 		}
 		return res;
+	}
+	/**
+	 * Does a silent check if current square contains a the correct user input
+	 * @return true if valid answer, false if not
+	 */
+	
+	public boolean isValid()
+	{
+		this.getCurrentValue();
+		this.getCorrectValue();
+		
+		return this.getCorrectValue()==this.getCurrentValue();
 	}
 	
 }

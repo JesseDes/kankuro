@@ -21,6 +21,7 @@ public class AppModel {
 
 	private static final String DB_URL = "jdbc:sqlite:data/kakuro.db";
 	private Connection _conn;
+	private String _currentDifficulty;
 	
 	/**
 	 * {@inheritDoc}
@@ -251,6 +252,9 @@ public class AppModel {
 		
 		return diffList;
 	}
+	
+	public String getCurrentDifficulty() {return _currentDifficulty;}
+	public void setCurrentDifficulty(String diff) { _currentDifficulty = diff;}
 	
 	
     /**
